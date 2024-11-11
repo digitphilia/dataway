@@ -23,6 +23,11 @@ CREATE TABLE [meta].[mw_hs_heading_code] (
     [hs_chapter_code] CHAR(2) NOT NULL,
     [hs_heading_desc] VARCHAR(256) UNIQUE NOT NULL,
 
+    -- ? heading is a 4 digit code, but the number of available codes are
+    -- large, thus a created on field is added into the meta table to track
+    -- the insertion (i.e., created on) date for a hs heading code, same for hs code
+    [created_on] DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
     CONSTRAINT [pk_hs_heading_code] PRIMARY KEY NONCLUSTERED ([hs_heading_code]),
 
     CONSTRAINT [fk_hs_chapter_code] FOREIGN KEY ([hs_chapter_code])
@@ -37,6 +42,9 @@ CREATE TABLE [meta].[mw_hs_code] (
     -- ? harmonized code is unique, and first four characters are heading code
     [hs_heading_code] CHAR(4) NOT NULL,
     [hsc_description] VARCHAR(256) NOT NULL,
+
+    -- ? Refer to Comment: [meta].[mw_hs_heading_code].[created_on]
+    [created_on] DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT [pk_hs_code] PRIMARY KEY NONCLUSTERED ([hs_code]),
 
