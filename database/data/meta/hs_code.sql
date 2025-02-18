@@ -202,6 +202,7 @@ INSERT INTO [meta].[mw_hs_code] ([hs_code], [hs_heading_code], [hsc_description]
   ('29335990', '2933', 'HS Codes Classification of Other'),
   ('29339990', '2933', 'HS Codes Classification of Other'),
   ('32041929', '3204', 'HS Codes Classification of Other'),
+  ('32061110', '3206', 'HS Codes Classification of Other'),
   ('32061190', '3206', 'HS Codes Classification of Other'),
   ('32061900', '3206', 'HS Codes Classification of Other'),
   ('32082010', '3208', 'HS Codes Classification of Other'),
