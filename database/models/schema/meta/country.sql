@@ -19,19 +19,24 @@ Version : v1.0.0
 Copywright © [2025] Debmalya Pramanik, DigitPhilia INC
 ********************************************************************/
 
-CREATE TABLE [meta].[mw_country] (
-    [country_code] CHAR(3),
-    [country_name] VARCHAR(64) NOT NULL,
+CREATE TABLE IF NOT EXISTS public.mw_country (
+    country_code
+        CHAR(3)
+        CONSTRAINT pk_country_code PRIMARY KEY,
 
-    [iso2_code]     CHAR(2) NOT NULL,
-    [currency_code] CHAR(3),
+    country_name
+        VARCHAR(64)
+        CONSTRAINT uq_country_name UNIQUE,
 
-    CONSTRAINT [pk_country_code] PRIMARY KEY NONCLUSTERED ([country_code]),
-    CONSTRAINT [uq_country_name] UNIQUE ([country_name]),
-    CONSTRAINT [uq_country_iso2] UNIQUE ([iso2_code]),
-
-    CONSTRAINT [fk_country_currency] FOREIGN KEY ([currency_code])
-        REFERENCES [meta].[currency_code] ([currency_code])
-        ON DELETE SET NULL
-        ON UPDATE CASCADE
+    iso2_code
+        CHAR(2)
+        CONSTRAINT uq_country_iso2 UNIQUE,
+    
+    numeric_code
+        CHAR(3)
+        CONSTRAINT uq_country_numeric_code UNIQUE,
+    
+    top_level_domain
+        CHAR(3)
+        CONSTRAINT uq_country_top_level_domain UNIQUE
 );
