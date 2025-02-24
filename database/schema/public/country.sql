@@ -10,7 +10,12 @@ CHANGELOG: All major changes related to this file is documented here,
 sementic versioning (https://semver.org/).
     * v1.0.0: The initial production release. The following features
       and details are available:
-        - 
+        - added master table for continents,
+        - added master table for regions and subregions,
+        - added master table for countries, mapping with regions,
+            subregions and continent name, and
+        - each data point has an Wiki Data ID which can be used to
+            fetch and view additional details.
 
 Author  : Debmalya Pramanik
 Contact : email@example.com
@@ -65,17 +70,17 @@ CREATE TABLE IF NOT EXISTS public.mw_subregion (
         VARCHAR(64)
         CONSTRAINT uq_subregion_name UNIQUE,
 
-    region_code
-        CHAR(3)
-        CONSTRAINT fk_subregion_region_code
-            REFERENCES public.mw_region(region_code)
-            ON UPDATE CASCADE
-            ON DELETE SET NULL,
-
     continent_code
         CHAR(2)
         CONSTRAINT fk_subregion_continent_code
             REFERENCES public.mw_continent(continent_code)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL,
+
+    region_code
+        CHAR(3)
+        CONSTRAINT fk_subregion_region_code
+            REFERENCES public.mw_region(region_code)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
     
@@ -94,10 +99,10 @@ CREATE TABLE IF NOT EXISTS public.mw_country (
         VARCHAR(64)
         CONSTRAINT uq_country_name UNIQUE,
 
-    subregion_code
-        CHAR(3)
-        CONSTRAINT fk_country_subregion_code
-            REFERENCES public.mw_subregion(subregion_code)
+    continent_code
+        CHAR(2)
+        CONSTRAINT fk_country_continent_code
+            REFERENCES public.mw_continent(continent_code)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
     
@@ -108,10 +113,10 @@ CREATE TABLE IF NOT EXISTS public.mw_country (
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
-    continent_code
-        CHAR(2)
-        CONSTRAINT fk_country_continent_code
-            REFERENCES public.mw_continent(continent_code)
+    subregion_code
+        CHAR(3)
+        CONSTRAINT fk_country_subregion_code
+            REFERENCES public.mw_subregion(subregion_code)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
