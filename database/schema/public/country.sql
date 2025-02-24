@@ -5,18 +5,6 @@ The following table contains the list of continents, regions, country,
 states and cities details which can be used for various functionality
 and may also serve as indexation for transactional data.
 
-CHANGELOG: All major changes related to this file is documented here,
-(recommended to be used in a standalone query file) and follows the
-sementic versioning (https://semver.org/).
-    * v1.0.0: The initial production release. The following features
-      and details are available:
-        - added master table for continents,
-        - added master table for regions and subregions,
-        - added master table for countries, mapping with regions,
-            subregions and continent name, and
-        - each data point has an Wiki Data ID which can be used to
-            fetch and view additional details.
-
 Author  : Debmalya Pramanik
 Contact : email@example.com
 Version : v1.0.0
