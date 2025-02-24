@@ -120,3 +120,66 @@ CREATE TABLE IF NOT EXISTS public.mw_country (
         CHAR(3)
         CONSTRAINT uq_country_top_level_domain UNIQUE
 );
+
+
+CREATE TABLE IF NOT EXISTS public.mw_state (
+    state_code
+        CHAR(5)
+        CONSTRAINT pk_state_code PRIMARY KEY,
+
+    state_name
+        VARCHAR(64),
+
+    country_code
+        CHAR(3)
+        CONSTRAINT fk_state_country_code
+            REFERENCES public.mw_country(country_code)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL,
+
+    state_type
+        VARCHAR(32),
+
+    state_latitude
+        NUMERIC(9, 6),
+
+    state_longitude
+        NUMERIC(9, 6),
+
+    CONSTRAINT uq_state_name UNIQUE (country_code, state_name)
+);
+
+
+CREATE TABLE IF NOT EXISTS public.mw_city (
+    city_code
+        SERIAL
+        CONSTRAINT pk_city_code PRIMARY KEY,
+
+    city_name
+        VARCHAR(64),
+
+    country_code
+        CHAR(3)
+        CONSTRAINT fk_city_country_code
+            REFERENCES public.mw_country(country_code)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL,
+
+    state_code
+        CHAR(5)
+        CONSTRAINT fk_city_state_code
+            REFERENCES public.mw_state(state_code)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL,
+
+    city_type
+        VARCHAR(32),
+
+    city_latitude
+        NUMERIC(9, 6),
+
+    city_longitude
+        NUMERIC(9, 6),
+
+    CONSTRAINT uq_city_name UNIQUE (country_code, state_code, city_name)
+);

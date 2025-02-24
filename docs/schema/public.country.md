@@ -46,6 +46,14 @@ the initial [story #3](https://github.com/digitphilia/dataway/issues/3) for more
     each data to get additional information.
   * 🎉 A [country](https://en.wikipedia.org/wiki/Country) is a distinct entity which is a political boundary and a unique
     identification number is provided by the International Organization for Standardization (ISO).
+  * 🎉 Added states and cities information along with latitude and longitude details. The latitude and longitude can be
+    essentially used for additional tracking like weather etc. details.
+    - a state code is a unique five digit code which is a combination of country code and two digit state code seperated by
+      a slash.
+    - the convention ensures uniqueness of state code globally and also restricts entry of two of the same state code for
+      a country.
+    - typically, a state name should be unique across the world while the city name may not be unique - this constraint is
+      thus placed and defined accordingly.
 
 </details>
 
