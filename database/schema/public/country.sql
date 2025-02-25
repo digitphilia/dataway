@@ -118,7 +118,15 @@ CREATE TABLE IF NOT EXISTS public.mw_country (
 
     top_level_domain
         CHAR(3)
-        CONSTRAINT uq_country_top_level_domain UNIQUE
+        CONSTRAINT uq_country_top_level_domain UNIQUE,
+
+    wikidata_id
+        VARCHAR(8)
+        CONSTRAINT uq_country_wikidata_id UNIQUE,
+
+    country_flag_uri
+        VARCHAR(256)
+        CONSTRAINT uq_country_flag_uri UNIQUE
 );
 
 
