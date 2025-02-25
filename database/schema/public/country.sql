@@ -51,13 +51,6 @@ CREATE TABLE IF NOT EXISTS public.mw_subregion (
         VARCHAR(64) NOT NULL
         CONSTRAINT uq_subregion_name UNIQUE,
 
-    continent_code
-        CHAR(2) NOT NULL
-        CONSTRAINT fk_subregion_continent_code
-            REFERENCES public.mw_continent(continent_code)
-            ON UPDATE CASCADE
-            ON DELETE SET NULL,
-
     region_code
         CHAR(3) NOT NULL
         CONSTRAINT fk_subregion_region_code
