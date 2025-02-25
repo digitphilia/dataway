@@ -36,13 +36,6 @@ CREATE TABLE IF NOT EXISTS public.mw_region (
         VARCHAR(64) NOT NULL
         CONSTRAINT uq_region_name UNIQUE,
 
-    continent_code
-        CHAR(2) NOT NULL
-        CONSTRAINT fk_region_continent_code
-            REFERENCES public.mw_continent(continent_code)
-            ON UPDATE CASCADE
-            ON DELETE SET NULL,
-
     wikidata_id
         VARCHAR(8) NOT NULL
         CONSTRAINT uq_region_wikidata_id UNIQUE

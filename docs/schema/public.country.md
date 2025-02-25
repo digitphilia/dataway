@@ -43,6 +43,8 @@ the initial [story #3](https://github.com/digitphilia/dataway/issues/3) for more
   * ⚙️ Set `wikidata_id` column as `VARCHAR(8)` instead of `VARCHAR(16)` for all the columns.
   * ✨ Add `wikidata_id` and `country_flag_uri` for developer usage and decoration purposes, however both the constraint
     are currently nullable (GH#7).
+  * 💣 Remove continent foreign key constraint from regions as regions is a combination of some continents or some other
+    larger land mases that makes it difficult to map with the continent.
 
 #### v1.0.0 | Release Date: 2025-02-24
 
