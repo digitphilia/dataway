@@ -36,6 +36,14 @@ and the same is added in the version heading.
 The version aims to provide a default schema to track geographical boundaries. For more details on the use case, check
 the initial [story #3](https://github.com/digitphilia/dataway/issues/3) for more details.
 
+#### v1.0.1 | Release Date: 2025-02-25
+
+  * 🛠️ Explicitly state not null constraint to column names, like country name, as `postgres` considers `NULL` as noise
+    and also these column should not be null value.
+  * ⚙️ Set `wikidata_id` column as `VARCHAR(8)` instead of `VARCHAR(16)` for all the columns.
+  * ✨ Add `wikidata_id` and `country_flag_uri` for developer usage and decoration purposes, however both the constraint
+    are currently nullable (GH#7).
+
 #### v1.0.0 | Release Date: 2025-02-24
 
   * 🎉 The world is divided into seven continent ([details](https://en.wikipedia.org/wiki/Continent)) - which are generally
