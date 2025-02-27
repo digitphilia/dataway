@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS public.mw_currency_type (
         CONSTRAINT uq_currency_type_name UNIQUE,
 
     currency_type_desc
-        VARCHAR(256) NOT NULL,
+        VARCHAR(128) NOT NULL,
 
     wikidata_id
         VARCHAR(8) NOT NULL
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS public.mw_currency_subtype (
             ON DELETE SET NULL,
 
     currency_subtype_desc
-        VARCHAR(256) NOT NULL,
+        VARCHAR(128) NOT NULL,
 
     wikidata_id
         VARCHAR(8) NOT NULL
