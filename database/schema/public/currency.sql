@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS public.mw_currency_type (
         CONSTRAINT pk_currency_type PRIMARY KEY,
 
     currency_type_name
-        VARCHAR(16) NOT NULL
+        VARCHAR(32) NOT NULL
         CONSTRAINT uq_currency_type_name UNIQUE,
 
     currency_type_desc
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS public.mw_currency_subtype (
         CONSTRAINT pk_currency_subtype PRIMARY KEY,
 
     currency_subtype_name
-        VARCHAR(16) NOT NULL
+        VARCHAR(48) NOT NULL
         CONSTRAINT uq_currency_subtype_name UNIQUE,
 
     currency_type
