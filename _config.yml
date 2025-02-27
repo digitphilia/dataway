@@ -1,0 +1,18 @@
+# Configuration file for GitHub Pages using Jekyll
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true
+
+include:
+  - README.md
+
+remote_theme: pages-themes/tactile@v0.2.0
+
+# the tactile theme alows configuration of pages with additional params
+title: [Database Highway `dataway` by DigitPhilia INC.]
+description: [Home to manage database, update security policy and track progress.]
