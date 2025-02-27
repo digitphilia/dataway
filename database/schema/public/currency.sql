@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS public.mw_currency_type (
         VARCHAR(128) NOT NULL,
 
     wikidata_id
-        VARCHAR(8) NOT NULL
+        VARCHAR(12) NOT NULL
         CONSTRAINT uq_currency_type_wikidata_id UNIQUE
 );
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS public.mw_currency_subtype (
         VARCHAR(128) NOT NULL,
 
     wikidata_id
-        VARCHAR(8) NOT NULL
+        VARCHAR(12) NOT NULL
         CONSTRAINT uq_currency_subtype_wikidata_id UNIQUE
 );
 
