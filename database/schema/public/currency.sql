@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS public.mw_currency (
     minor_unit_factor
         INTEGER,
 
+    -- ? we either want all the minor details or none
     CONSTRAINT ck_minor_currency_null CHECK (
         NUM_NULLS(minor_unit_name, minor_unit_symbol, minor_unit_factor) IN (0, 3)
     )
