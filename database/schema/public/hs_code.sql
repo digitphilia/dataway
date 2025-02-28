@@ -1,3 +1,19 @@
+/********************************************************************
+Global Harmonized System (HS) Codes Schema & Tables
+
+Harmonized System (HS) Codes are a common standard for classification
+of products, services and trade transactions. The Harmonized System
+(HS) is a system of classification of trade items according to their
+nature and use. The following tabels are created to capture the
+harmonized system codes - their nature and relationship.
+
+Author  : Debmalya Pramanik
+Contact : email@example.com
+Version : v1.0.0
+
+Copywright © [2025] Debmalya Pramanik, DigitPhilia INC
+********************************************************************/
+
 CREATE TABLE [meta].[mw_hs_section_code] (
     [hs_section_code] CHAR(2),
     [hs_section_desc] VARCHAR(256) UNIQUE NOT NULL,
