@@ -6,4 +6,11 @@ An one stop solution to manage, update and track the progress of databases at th
 created and respective permissions are given as required. The ``dataway`` ensures that high-quality data is maintained at the
 company level.
 
+## Getting Started
+
+The **`database`** directory contains code samples (table, function, stored procedures, etc.) that represents all the data
+that are tracked, updated and used for different purposes. The directory structure follows simple standard by seperating each
+data by schema names. The losely coupled database design ensures enduser to specifically break links between two different
+schema at will by removing the foreign key constraints.
+
 </div>
