@@ -43,6 +43,7 @@ In addition, to seperate different types of tables (`master` vs `transactional`)
 | :---: | :---: | :---: | --- |
 | **PREFIX** | `mw_` | Table Names | Prefix for table names which stores master data. |
 | **PREFIX** | `tx_` | Table Names | Prefix for table names which stores transactional data. |
+| **PREFIX** | `sl_` | Table Names | Prefix for table names which connects tables from different schema. |
 
 </div>
 
