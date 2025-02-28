@@ -58,10 +58,10 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_heading_code (
     hs_heading_desc
         VARCHAR(256)
         CONSTRAINT uq_hs_heading_desc UNIQUE,
-
-    -- ? heading is a 4 digit code, but the number of available codes are
-    -- large, thus a created on field is added into the meta table to track
-    -- the insertion (i.e., created on) date for a hs heading code, same for hs code
+        
+    -- ! this is a master table, with a created on field (requirement)
+    -- ? there are large number of chapters, created date for tracking
+    -- as we want to know from which date this chapter code was created
     created_on
         DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -79,7 +79,12 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_code (
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
-    hsc_description
+    hs_code_desc
         VARCHAR(256)
-        CONSTRAINT uq_hsc_description UNIQUE
+        CONSTRAINT uq_hsc_description UNIQUE,
+
+    -- ! this is a master table, with a created on field (requirement)
+    -- ? the reason is same as the hs heading description table filed
+    created_on
+        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
