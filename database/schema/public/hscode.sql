@@ -95,13 +95,6 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_code (
         CHAR(8)
         CONSTRAINT pk_hs_code PRIMARY KEY,
 
-    hs_heading_code
-        CHAR(4) NOT NULL
-        CONSTRAINT fk_hs_heading_code
-            REFERENCES public.mw_hs_heading_code(hs_heading_code)
-            ON UPDATE CASCADE
-            ON DELETE SET NULL,
-
     hs_subheading_code
         CHAR(6) NOT NULL
         CONSTRAINT fk_hs_subheading_code
