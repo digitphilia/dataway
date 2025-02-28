@@ -1,4 +1,4 @@
-INSERT INTO [meta].[mw_hs_section_code] ([hs_section_code], [hs_section_desc]) VALUES
+INSERT INTO public.mw_hs_section_code (hs_section_code, hs_section_desc) VALUES
   ('01', 'Live Animals; Animal Products'),
   ('02', 'Vegetable Products'),
   ('03', 'Animal or Vegetable Fats & Oils & Their Cleavage Products; Prepared Edible Fats; Animal or Vegatble Waxes'),
@@ -22,7 +22,7 @@ INSERT INTO [meta].[mw_hs_section_code] ([hs_section_code], [hs_section_desc]) V
   ('21', 'Works of Art, Collectors Pieces & Antiques');
 
 
-INSERT INTO [meta].[mw_hs_chapter_code] ([hs_chapter_code], [hs_section_code], [hs_chapter_desc]) VALUES
+INSERT INTO public.mw_hs_chapter_code (hs_chapter_code, hs_section_code, hs_chapter_desc) VALUES
   ('01', '01', 'Live Animals'),
   ('02', '01', 'Meat & Edible Meat offal'),
   ('03', '01', 'Fish & Crustaceans, Molluscs & Other Aquatic Invertebrates'),
@@ -123,7 +123,7 @@ INSERT INTO [meta].[mw_hs_chapter_code] ([hs_chapter_code], [hs_section_code], [
   ('98', '21', 'Project Imports, Laboratory Chemicals, Passengers Baggage, Personal Importation By Air or Post; Ship Stores');
 
 
-INSERT INTO [meta].[mw_hs_heading_code] ([hs_heading_code], [hs_chapter_code], [hs_heading_desc]) VALUES
+INSERT INTO public.mw_hs_heading_code (hs_heading_code, hs_chapter_code, hs_heading_desc) VALUES
   ('2901', '29', 'Acyclic Hydrocarbons (Hydrocarbons & their Hologeneted,Sulphonated, Nitrated or Nitrosated Derivaties)'),
   ('2902', '29', 'Cyclic Hydrocarbons Cyclanes, Cyclenes & Cycloterpenes:(Hydrocarbons & their Hologeneted,Sulphonated, Nitrated or Nitrosated Derivaties)'),
   ('2903', '29', 'Halogenated Derivatives of Hydrocarbons Saturated Chlorinated Derivatives of Acyclic Hydrocarbons:(Hydrocarbons & their Hologeneted,Sulphonated, Nitrated or Nitrosated Derivaties)'),
@@ -188,7 +188,7 @@ INSERT INTO [meta].[mw_hs_heading_code] ([hs_heading_code], [hs_chapter_code], [
 -- ! WRONG DESCRIPTION ENTRY WARNING
 -- all the description are wrong, too much work - hire someone else
 
-INSERT INTO [meta].[mw_hs_code] ([hs_code], [hs_heading_code], [hsc_description]) VALUES
+INSERT INTO public.mw_hs_code (hs_code, hs_heading_code, hsc_description) VALUES
   ('29023000', '2902', 'HS Codes Classification of Other'),
   ('29025000', '2902', 'HS Codes Classification of Other'),
   ('29071590', '2907', 'HS Codes Classification of Other'),
