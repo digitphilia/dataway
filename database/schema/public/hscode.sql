@@ -67,6 +67,29 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_heading_code (
 );
 
 
+CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
+    hs_subheading_code
+        CHAR(6)
+        CONSTRAINT pk_hs_subheading_code PRIMARY KEY,
+
+    hs_heading_code
+        CHAR(4) NOT NULL
+        CONSTRAINT fk_hs_heading_code
+            REFERENCES public.mw_hs_heading_code(hs_heading_code)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL,
+
+    hs_subheading_desc
+        VARCHAR(256)
+        CONSTRAINT uq_hs_subheading_desc UNIQUE,
+
+    -- ! this is a master table, with a created on field (requirement)
+    -- ? the reason is same as the hs heading description table filed
+    created_on
+        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
 CREATE TABLE IF NOT EXISTS public.mw_hs_code (
     hs_code
         CHAR(8)
@@ -76,6 +99,13 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_code (
         CHAR(4) NOT NULL
         CONSTRAINT fk_hs_heading_code
             REFERENCES public.mw_hs_heading_code(hs_heading_code)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL,
+
+    hs_subheading_code
+        CHAR(6) NOT NULL
+        CONSTRAINT fk_hs_subheading_code
+            REFERENCES public.mw_hs_subheading_code(hs_subheading_code)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
