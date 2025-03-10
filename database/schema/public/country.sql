@@ -23,7 +23,11 @@ CREATE TABLE IF NOT EXISTS public.mw_continent (
 
     wikidata_id
         VARCHAR(8) NOT NULL
-        CONSTRAINT uq_continent_wikidata_id UNIQUE
+        CONSTRAINT uq_continent_wikidata_id UNIQUE,
+
+    geoname_id
+        VARCHAR(8) NOT NULL
+        CONSTRAINT uq_continent_geoname_id UNIQUE
 );
 
 
