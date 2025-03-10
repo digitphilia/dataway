@@ -10,13 +10,13 @@ Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
 INSERT INTO public.mw_continent (continent_code, continent_name, wikidata_id) VALUES
-    ('AS', 'ASIA', 'Q48'),
-    ('AF', 'AFRICA', 'Q15'),
-    ('EU', 'EUROPE', 'Q46'),
-    ('NA', 'NORTH AMERICA', 'Q49'),
-    ('SA', 'SOUTH AMERICA', 'Q18'),
-    ('AU', 'AUSTRALIA', 'Q3960'),
-    ('AN', 'ANTARTICA', 'Q51');
+    ('AS', 'ASIA', 'Q48', '6255147'),
+    ('AF', 'AFRICA', 'Q15', '6255146'),
+    ('EU', 'EUROPE', 'Q46', '6255148'),
+    ('NA', 'NORTH AMERICA', 'Q49', '6255149'),
+    ('SA', 'SOUTH AMERICA', 'Q18', '6255150'),
+    ('AU', 'AUSTRALIA', 'Q3960', '6255151'),
+    ('AN', 'ANTARTICA', 'Q51', '6255152');
 
 
 INSERT INTO public.mw_region (region_code, region_name, wikidata_id) VALUES
