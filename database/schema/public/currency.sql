@@ -5,6 +5,9 @@ The following tables contains information like the currency name,
 symbol, code and minor units among typical things to be used for a
 set of analysis or as a proxy for economic factors for various analysis.
 
+We've also added the provision to handle currency minor units, if any,
+then the check constraint ensures all the data are added.
+
 Author  : Debmalya Pramanik
 Contact : email@example.com
 Version : v1.0.0
@@ -94,7 +97,6 @@ CREATE TABLE IF NOT EXISTS public.mw_currency (
     minor_unit_factor
         INTEGER,
 
-    -- ? we either want all the minor details or none
     CONSTRAINT ck_minor_currency_null CHECK (
         NUM_NULLS(minor_unit_name, minor_unit_symbol, minor_unit_factor) IN (0, 3)
     )
