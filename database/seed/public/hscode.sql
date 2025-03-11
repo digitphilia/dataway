@@ -166,9 +166,9 @@ INSERT INTO public.mw_hs_heading_code (hs_heading_code, hs_chapter_code, hs_head
   ('2941', '29', 'Antibiotics'),
   ('2942', '29', 'Other organic Compounds'),
   ('3204', '32', 'Synthetic organic coloring matter whether or not chemically defined; synthetic organic colouring matter; synthetic organic products of a kind used as fluorescent brightening agens or as luminoph'),
-  ('3206', '32', 'TODO//3206: Get Heading from CYBEX/Alternates'),
-	('3208', '32', 'TODO//3208: Get Heading from CYBEX/Alternates'),
-	('3212', '32', 'TODO//3212: Get Heading from CYBEX/Alternates')
+  ('3206', '32', 'Other colouring matter; preparations as specified in Note 3 to this Chapter, other than those of heading 32.03, 32.04 or 32.05; inorganic products of a kind used as luminophores, whether or not chemically defined.'),
+  ('3208', '32', 'Paints and varnishes (including enamels and lacquers) based on synthetic polymers or chemically modified natural polymers, dispersed or dissolved in a non-aqueous medium; solutions as defined in Note 4 to this Chapter.'),
+  ('3212', '32', 'Pigments (including metallic powders and flakes) dispersed in non-aqueous media, in liquid or paste form, of a kind used in the manufacture of paints (including enamels); stamping foils; dyes and other colouring matter put up in forms or packings.'),
   ('3501', '35', 'Casein, Caseinates & Other Casein Derivatives; Casein Glues'),
   ('3502', '35', 'Albumins (Including Concentrates of Two or More Whey Proteins, Containing By Weight More Than 80% Whey Proteins, Calculated On The Dry Matter), Albuminates & Other Albumin Derivatives'),
   ('3503', '35', 'Gelatin [Including Gelatin In Rectangular (Including Square) Sheets, Whether or Not Surface-Worked or Coloured] & Gelatin Derivatives; Isinglass; Other Glues of Animal origin, Excluding Casein Glues of Heading 3501'),
