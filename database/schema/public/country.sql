@@ -114,6 +114,10 @@ CREATE TABLE IF NOT EXISTS public.mw_country (
         VARCHAR(8)
         CONSTRAINT uq_country_wikidata_id UNIQUE,
 
+    geoname_id
+        VARCHAR(8)
+        CONSTRAINT uq_country_geoname_id UNIQUE,
+
     country_flag_uri
         VARCHAR(256)
         CONSTRAINT uq_country_flag_uri UNIQUE
