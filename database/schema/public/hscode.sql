@@ -7,6 +7,10 @@ of products, services and trade transactions. The Harmonized System
 nature and use. The following tabels are created to capture the
 harmonized system codes - their nature and relationship.
 
+Since there are multiple heading and subheading code in a chapter and
+also the HS code varies from country to country we have added an
+timestamp filed to track the date of creation of the record.
+
 Author  : Debmalya Pramanik
 Contact : email@example.com
 Version : v1.0.0
@@ -20,7 +24,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
         CONSTRAINT pk_hs_code PRIMARY KEY,
 
     hs_section_desc
-        VARCHAR(256)
+        VARCHAR(256) NOT NULL
         CONSTRAINT uq_hs_section_desc UNIQUE
 );
 
@@ -38,7 +42,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_chapter_code (
             ON DELETE SET NULL,
 
     hs_chapter_desc
-        VARCHAR(256)
+        VARCHAR(256) NOT NULL
         CONSTRAINT uq_hs_chapter_desc UNIQUE
 );
 
@@ -56,12 +60,9 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_heading_code (
             ON DELETE SET NULL,
 
     hs_heading_desc
-        VARCHAR(256)
+        VARCHAR(256) NOT NULL
         CONSTRAINT uq_hs_heading_desc UNIQUE,
-        
-    -- ! this is a master table, with a created on field (requirement)
-    -- ? there are large number of chapters, created date for tracking
-    -- as we want to know from which date this chapter code was created
+
     created_on
         DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -80,11 +81,9 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
             ON DELETE SET NULL,
 
     hs_subheading_desc
-        VARCHAR(256)
+        VARCHAR(256) NOT NULL
         CONSTRAINT uq_hs_subheading_desc UNIQUE,
 
-    -- ! this is a master table, with a created on field (requirement)
-    -- ? the reason is same as the hs heading description table filed
     created_on
         DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -103,11 +102,9 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_code (
             ON DELETE SET NULL,
 
     hs_code_desc
-        VARCHAR(256)
+        VARCHAR(256) NOT NULL
         CONSTRAINT uq_hsc_description UNIQUE,
 
-    -- ! this is a master table, with a created on field (requirement)
-    -- ? the reason is same as the hs heading description table filed
     created_on
         DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
