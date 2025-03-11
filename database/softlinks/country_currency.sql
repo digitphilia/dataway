@@ -11,6 +11,9 @@ SL Objective: Create a relationship to list the currency used in a
 country. We may want to add a feature to track primary/secondary/other
 types of currency using this table to.
 
+We've also added a dated activity field which can be used to track the
+active currency and past currency of the entity.
+
 Copywright © [2025] Debmalya Pramanik
 ********************************************************************/
 
@@ -32,6 +35,17 @@ CREATE TABLE IF NOT EXISTS public.sl_country_currency (
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
+    is_active
+        BOOLEAN NOT NULL DEFAULT TRUE,
+
+    inactive_reason
+        VARCHAR(256),
+
     CONSTRAINT uq_sl_country_currency
-        UNIQUE (country_code, currency_code)
+        UNIQUE (country_code, currency_code),
+
+    CONSTRAINT ck_ammendment_reason CHECK (
+        (is_active IS TRUE AND inactive_reason IS NULL)
+        OR (is_active IS FALSE AND inactive_reason IS NOT NULL)
+    )
 );
