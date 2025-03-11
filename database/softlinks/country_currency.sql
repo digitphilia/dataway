@@ -41,6 +41,12 @@ CREATE TABLE IF NOT EXISTS public.sl_country_currency (
     inactive_reason
         VARCHAR(256),
 
+    created_on
+        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    updated_on
+        DATETIME,
+
     CONSTRAINT uq_sl_country_currency
         UNIQUE (country_code, currency_code),
 
