@@ -36,6 +36,12 @@ and the same is added in the version heading.
 The version aims to provide a default schema to track geographical boundaries. For more details on the use case, check
 the initial [story #6](https://github.com/digitphilia/dataway/issues/6) for more details.
 
+#### v1.0.0 | Release Date: 2025-03-11
+
+  * 🎉 A table is created to track HS Section Code.
+  * 🎉 A table is created to track HS Chapter, Heading and Sub-Heading Code.
+  * 🎉 A table is created to track HS Code, todo soft link with country table ([GH#24](https://github.com/digitphilia/dataway/pull/24)).
+
 </details>
 
 </div>
