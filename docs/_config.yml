@@ -14,5 +14,5 @@ include:
 remote_theme: pages-themes/tactile@v0.2.0
 
 # the tactile theme alows configuration of pages with additional params
-title: [Database Highway `dataway` by DigitPhilia INC.]
-description: [Home to manage database, update security policy and track progress.]
+title: Database Highway
+description: Centralized DBMS Solution, DigitPhilia INC.
