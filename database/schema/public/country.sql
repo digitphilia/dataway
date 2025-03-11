@@ -7,7 +7,7 @@ and may also serve as indexation for transactional data.
 
 Author  : Debmalya Pramanik
 Contact : email@example.com
-Version : v1.0.1
+Version : v1.0.2
 
 Copywright © [2025] Debmalya Pramanik, DigitPhilia INC
 ********************************************************************/
