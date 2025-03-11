@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
         DATE,
 
     is_active
-        BOOLEAN NOT NULL DEFAULT 1
+          BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_chapter_code (
         DATE,
 
     is_active
-        BOOLEAN NOT NULL DEFAULT 1
+          BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_heading_code (
         DATE,
 
     is_active
-        BOOLEAN NOT NULL DEFAULT 1
+          BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
         DATE,
 
     is_active
-        BOOLEAN NOT NULL DEFAULT 1
+          BOOLEAN NOT NULL DEFAULT TRUE
 );
 
 
@@ -151,5 +151,5 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_code (
         DATE,
 
     is_active
-        BOOLEAN NOT NULL DEFAULT 1
+          BOOLEAN NOT NULL DEFAULT TRUE
 );
