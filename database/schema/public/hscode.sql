@@ -25,7 +25,16 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
 
     hs_section_desc
         VARCHAR(256) NOT NULL
-        CONSTRAINT uq_hs_section_desc UNIQUE
+        CONSTRAINT uq_hs_section_desc UNIQUE,
+
+    revision_date
+        DATE NOT NULL,
+
+    amendment_date
+        DATE,
+
+    is_active
+        BOOLEAN NOT NULL DEFAULT 1
 );
 
 
@@ -43,7 +52,16 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_chapter_code (
 
     hs_chapter_desc
         VARCHAR(256) NOT NULL
-        CONSTRAINT uq_hs_chapter_desc UNIQUE
+        CONSTRAINT uq_hs_chapter_desc UNIQUE,
+
+    revision_date
+        DATE NOT NULL,
+
+    amendment_date
+        DATE,
+
+    is_active
+        BOOLEAN NOT NULL DEFAULT 1
 );
 
 
@@ -64,7 +82,16 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_heading_code (
         CONSTRAINT uq_hs_heading_desc UNIQUE,
 
     created_on
-        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    revision_date
+        DATE NOT NULL,
+
+    amendment_date
+        DATE,
+
+    is_active
+        BOOLEAN NOT NULL DEFAULT 1
 );
 
 
@@ -85,7 +112,16 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
         CONSTRAINT uq_hs_subheading_desc UNIQUE,
 
     created_on
-        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    revision_date
+        DATE NOT NULL,
+
+    amendment_date
+        DATE,
+
+    is_active
+        BOOLEAN NOT NULL DEFAULT 1
 );
 
 
@@ -106,5 +142,14 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_code (
         CONSTRAINT uq_hsc_description UNIQUE,
 
     created_on
-        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    revision_date
+        DATE NOT NULL,
+
+    amendment_date
+        DATE,
+
+    is_active
+        BOOLEAN NOT NULL DEFAULT 1
 );
