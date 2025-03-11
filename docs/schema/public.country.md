@@ -36,6 +36,11 @@ and the same is added in the version heading.
 The version aims to provide a default schema to track geographical boundaries. For more details on the use case, check
 the initial [story #3](https://github.com/digitphilia/dataway/issues/3) for more details.
 
+#### v1.0.2 | Release Date: 2025-03-11
+
+  * ✨ Geo Names ID is added as a field [GH#18](https://github.com/digitphilia/dataway/issues/18)
+    (nullable, ([GH#7](https://github.com/digitphilia/dataway/issues/7))) for tracking and enhance database usage.
+
 #### v1.0.1 | Release Date: 2025-02-25
 
   * 🛠️ Explicitly state not null constraint to column names, like country name, as `postgres` considers `NULL` as noise
