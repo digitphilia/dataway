@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_code (
     hs_code
-        CHAR(8)
+        VARCHAR(12)
         CONSTRAINT pk_hs_code PRIMARY KEY,
 
     hs_subheading_code
