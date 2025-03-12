@@ -1,0 +1,12 @@
+# Sphinx/RTD static build directories
+_build/
+_static/
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows shortcuts
+*.lnk
