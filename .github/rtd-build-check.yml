@@ -1,0 +1,17 @@
+name: readthedocs/actions
+on:
+  pull_request_target:
+    types:
+      - opened
+
+permissions:
+  pull-requests: write
+
+# https://github.com/readthedocs/actions/blob/main/.github/workflows/pull-request-links.yaml
+jobs:
+  pull-request-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: readthedocs/actions/preview@v1
+        with:
+          project-slug: "readthedocs-preview"
