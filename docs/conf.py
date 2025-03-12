@@ -17,6 +17,7 @@ release = open(os.path.abspath(os.path.join("..", "VERSION")), "r").read()
 
 extensions = [
     'myst_parser',
+    'sphinx_rtd_size',
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary'
 ]
@@ -31,3 +32,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+# -- Options for Sphinx RTD Content Width ------------------------------------
+# https://github.com/tadnir/sphinx-rtd-size
+sphinx_rtd_size_width = "85%"
