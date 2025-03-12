@@ -14,7 +14,7 @@ types of currency using this table to.
 We've also added a dated activity field which can be used to track the
 active currency and past currency of the entity.
 
-Copywright © [2025] Debmalya Pramanik
+Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
 CREATE TABLE IF NOT EXISTS public.sl_country_currency (

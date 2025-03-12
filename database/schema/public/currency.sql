@@ -8,11 +8,7 @@ set of analysis or as a proxy for economic factors for various analysis.
 We've also added the provision to handle currency minor units, if any,
 then the check constraint ensures all the data are added.
 
-Author  : Debmalya Pramanik
-Contact : email@example.com
-Version : v1.0.0
-
-Copywright © [2025] Debmalya Pramanik, DigitPhilia INC
+Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
 CREATE TABLE IF NOT EXISTS public.mw_currency_type (

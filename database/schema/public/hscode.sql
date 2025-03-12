@@ -11,11 +11,7 @@ Since there are multiple heading and subheading code in a chapter and
 also the HS code varies from country to country we have added an
 timestamp filed to track the date of creation of the record.
 
-Author  : Debmalya Pramanik
-Contact : email@example.com
-Version : v1.0.0
-
-Copywright © [2025] Debmalya Pramanik, DigitPhilia INC
+Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (

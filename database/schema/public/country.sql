@@ -5,11 +5,7 @@ The following table contains the list of continents, regions, country,
 states and cities details which can be used for various functionality
 and may also serve as indexation for transactional data.
 
-Author  : Debmalya Pramanik
-Contact : email@example.com
-Version : v1.0.2
-
-Copywright © [2025] Debmalya Pramanik, DigitPhilia INC
+Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
 CREATE TABLE IF NOT EXISTS public.mw_continent (

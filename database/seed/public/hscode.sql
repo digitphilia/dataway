@@ -1,3 +1,13 @@
+/********************************************************************
+Initial Seed Data for Public Schema: Harmonized System (HS) Code
+
+The initial seed data is as per schema design for the harmonized
+system related tables (.../schema/public/hscode.sql). The section,
+headings and sub-headings details are provided for reference.
+
+Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
+********************************************************************/
+
 INSERT INTO public.mw_hs_section_code (hs_section_code, hs_section_desc) VALUES
   ('01', 'Live Animals; Animal Products'),
   ('02', 'Vegetable Products'),
