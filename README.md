@@ -1,4 +1,10 @@
-<h1 align = "center">Database Highway</h1>
+<div align = "center">
+
+# Database Highway
+
+[![Documentation Status](https://readthedocs.org/projects/dataway/badge/?version=latest)](https://dataway.readthedocs.io/en/latest/?badge=latest&style=plastic)
+
+</div>
 
 <div align = "justify">
 
