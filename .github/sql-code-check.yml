@@ -1,0 +1,42 @@
+name: Check SQL Statements
+
+on: [ push, pull_request ]
+
+jobs:
+  check-sql:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup PostgreSQL
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y postgresql-client
+
+    - name: Wait for PostgreSQL to be Ready
+      run: |
+        until pg_isready -h localhost -p 5432; do
+          echo "Waiting for PostgreSQL to be ready..."
+          sleep 1
+        done
+
+    - name: Run & Check SQL Statements
+      run: |
+        psql -h localhost -U postgres -d testdb -f database\init.sql
