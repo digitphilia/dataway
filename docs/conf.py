@@ -35,4 +35,4 @@ html_static_path = ['_static']
 
 # -- Options for Sphinx RTD Content Width ------------------------------------
 # https://github.com/tadnir/sphinx-rtd-size
-sphinx_rtd_size_width = "85%"
+sphinx_rtd_size_width = "70%"
