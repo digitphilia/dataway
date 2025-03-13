@@ -1,6 +1,14 @@
 name: Check SQL Statements
 
-on: [ push, pull_request ]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 * * *'  # This will run daily at midnight
 
 jobs:
   check-sql:
@@ -8,7 +16,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:latest
+        image: postgres:13.3
         ports:
           - 5432:5432
         env:
@@ -25,10 +33,19 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Cache PostgreSQL client
+      uses: actions/cache@v2
+      with:
+        path: /usr/lib/postgresql
+        key: ${{ runner.os }}-postgresql-client
+
     - name: Setup PostgreSQL
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y postgresql-client
+      uses: Harmon758/postgresql-action@v1.0.0
+      with:
+        postgresql version: '13'
+        postgresql db: 'testdb'
+        postgresql user: 'postgres'
+        postgresql password: 'postgres'
 
     - name: Wait for PostgreSQL to be Ready
       run: |
@@ -37,6 +54,12 @@ jobs:
           sleep 1
         done
 
+    - name: Lint SQL Scripts
+      run: |
+        pip install sqlfluff
+        sqlfluff lint database/init.sql
+
     - name: Run & Check SQL Statements
       run: |
-        psql -h localhost -U postgres -d testdb -f database\init.sql
+        psql -h localhost -U postgres -d testdb -f database/init.sql
+ 
