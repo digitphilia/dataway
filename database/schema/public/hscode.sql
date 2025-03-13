@@ -17,7 +17,7 @@ Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
     hs_section_code
         CHAR(2)
-        CONSTRAINT pk_hs_code PRIMARY KEY,
+        CONSTRAINT pk_hs_section_code PRIMARY KEY,
 
     hs_section_desc
         VARCHAR(256) NOT NULL
