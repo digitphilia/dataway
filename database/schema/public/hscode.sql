@@ -14,138 +14,158 @@ timestamp filed to track the date of creation of the record.
 Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
-CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
-    hs_section_code
-        CHAR(2)
-        CONSTRAINT pk_hs_section_code PRIMARY KEY,
-
-    hs_section_desc
-        VARCHAR(256) NOT NULL
-        CONSTRAINT uq_hs_section_desc UNIQUE,
-
+CREATE TABLE IF NOT EXISTS public.mw_hs_major_revision (
     revision_date
-        DATE NOT NULL,
+        DATE
+        CONSTRAINT pk_revision_date PRIMARY KEY,
 
-    amendment_date
+    next_revision_date
         DATE,
+    
+    created_on
+        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    updated_on
+        TIMESTAMP,
 
     is_active
           BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+
+CREATE TABLE IF NOT EXISTS public.mw_hs_minor_revision (
+    minor_revision_date
+        DATE
+        CONSTRAINT pk_minor_revision_date PRIMARY KEY,
+
+    minor_revision_remarks
+        VARCHAR(256),
+    
+    created_on
+        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    updated_on
+        TIMESTAMP
+);
+
+
+CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
+    hs_section_uuid
+        CHAR(36)
+        CONSTRAINT pk_hs_section_uuid PRIMARY KEY,
+
+    hs_section_code
+        CHAR(2),
+
+    hs_section_desc
+        VARCHAR(256) NOT NULL,
+
+    revision_date
+        DATE NOT NULL
+        CONSTRAINT fk_major_revision_date_section
+            REFERENCES public.mw_hs_major_revision(revision_date)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL,
+
+    CONSTRAINT uq_hs_section_code UNIQUE(revision_date, hs_section_code),
+    CONSTRAINT uq_hs_section_desc UNIQUE(revision_date, hs_section_code, hs_section_desc)
 );
 
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_chapter_code (
-    hs_chapter_code
-        CHAR(2)
-        CONSTRAINT pk_hs_chapter_code PRIMARY KEY,
+    hs_chapter_uuid
+        CHAR(36)
+        CONSTRAINT pk_hs_chapter_uuid PRIMARY KEY,
 
-    hs_section_code
-        CHAR(2) NOT NULL
-        CONSTRAINT fk_hs_section_code
-            REFERENCES public.mw_hs_section_code(hs_section_code)
+    hs_chapter_code
+        CHAR(2),
+
+    hs_section_uuid
+        CHAR(36) NOT NULL
+        CONSTRAINT fk_hs_section_uuid
+            REFERENCES public.mw_hs_section_code(hs_section_uuid)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
     hs_chapter_desc
-        VARCHAR(256) NOT NULL
-        CONSTRAINT uq_hs_chapter_desc UNIQUE,
+        VARCHAR(256) NOT NULL,
 
-    revision_date
-        DATE NOT NULL,
-
-    amendment_date
-        DATE,
-
-    is_active
-          BOOLEAN NOT NULL DEFAULT TRUE
+    CONSTRAINT uq_hs_chapter_code UNIQUE(hs_section_uuid, hs_chapter_code),
+    CONSTRAINT uq_hs_chapter_desc UNIQUE(hs_section_uuid, hs_chapter_code, hs_chapter_desc)
 );
 
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_heading_code (
-    hs_heading_code
-        CHAR(4)
-        CONSTRAINT pk_hs_heading_code PRIMARY KEY,
+    hs_heading_uuid
+        CHAR(36)
+        CONSTRAINT pk_hs_heading_uuid PRIMARY KEY,
 
-    hs_chapter_code
-        CHAR(2) NOT NULL
-        CONSTRAINT fk_hs_chapter_code
-            REFERENCES public.mw_hs_chapter_code(hs_chapter_code)
+    hs_heading_code
+        CHAR(4),
+
+    hs_chapter_uuid
+        CHAR(36) NOT NULL
+        CONSTRAINT fk_hs_chapter_uuid
+            REFERENCES public.mw_hs_chapter_code(hs_chapter_uuid)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
     hs_heading_desc
-        VARCHAR(256) NOT NULL
-        CONSTRAINT uq_hs_heading_desc UNIQUE,
+        VARCHAR(256) NOT NULL,
 
-    created_on
-        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    revision_date
-        DATE NOT NULL,
-
-    amendment_date
-        DATE,
-
-    is_active
-          BOOLEAN NOT NULL DEFAULT TRUE
+    CONSTRAINT uq_hs_heading_code UNIQUE(hs_chapter_uuid, hs_heading_code),
+    CONSTRAINT uq_hs_heading_desc UNIQUE(hs_chapter_uuid, hs_heading_code, hs_heading_desc)
 );
 
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
-    hs_subheading_code
-        CHAR(6)
-        CONSTRAINT pk_hs_subheading_code PRIMARY KEY,
+    hs_subheading_uuid
+        CHAR(36)
+        CONSTRAINT pk_hs_subheading_uuid PRIMARY KEY,
 
-    hs_heading_code
-        CHAR(4) NOT NULL
-        CONSTRAINT fk_hs_heading_code
-            REFERENCES public.mw_hs_heading_code(hs_heading_code)
+    hs_subheading_code
+        CHAR(6),
+
+    hs_heading_uuid
+        CHAR(36) NOT NULL
+        CONSTRAINT fk_hs_heading_uuid
+            REFERENCES public.mw_hs_heading_code(hs_heading_uuid)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
     hs_subheading_desc
-        VARCHAR(256) NOT NULL
-        CONSTRAINT uq_hs_subheading_desc UNIQUE,
+        VARCHAR(256) NOT NULL,
 
-    created_on
-        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    revision_date
-        DATE NOT NULL,
-
-    amendment_date
-        DATE,
-
-    is_active
-          BOOLEAN NOT NULL DEFAULT TRUE
+    CONSTRAINT uq_hs_subheading_code UNIQUE(hs_heading_uuid, hs_subheading_code),
+    CONSTRAINT uq_hs_subheading_desc UNIQUE(hs_heading_uuid, hs_subheading_code, hs_subheading_desc)
 );
 
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_code (
-    hs_code
-        VARCHAR(12)
-        CONSTRAINT pk_hs_code PRIMARY KEY,
+    hs_code_uuid
+        CHAR(36)
+        CONSTRAINT pk_hs_code_uuid PRIMARY KEY,
 
-    hs_subheading_code
+    hs_code
+        VARCHAR(12),
+
+    hs_subheading_uuid
         CHAR(6) NOT NULL
-        CONSTRAINT fk_hs_subheading_code
-            REFERENCES public.mw_hs_subheading_code(hs_subheading_code)
+        CONSTRAINT fk_hs_subheading_uuid
+            REFERENCES public.mw_hs_subheading_code(hs_subheading_uuid)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
     hs_code_desc
-        VARCHAR(256) NOT NULL
-        CONSTRAINT uq_hsc_description UNIQUE,
+        VARCHAR(256) NOT NULL,
 
-    created_on
-        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    minor_revision_date
+        DATE NOT NULL
+        CONSTRAINT fk_minor_revision_date_hs_code
+            REFERENCES public.mw_hs_minor_revision(minor_revision_date)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL,
 
-    revision_date
-        DATE NOT NULL,
-
-    amendment_date
-        DATE,
-
-    is_active
-          BOOLEAN NOT NULL DEFAULT TRUE
+    CONSTRAINT uq_hs_code UNIQUE(hs_subheading_uuid, minor_revision_date, hs_code),
+    CONSTRAINT uq_hs_desc UNIQUE(hs_subheading_uuid, minor_revision_date, hs_code, hs_code_desc)
 );
