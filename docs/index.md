@@ -5,6 +5,14 @@
 ```{toctree}
 :maxdepth: 2
 :hidden:
+:caption: Getting Started
+
+standard/index.md
+```
+
+```{toctree}
+:maxdepth: 2
+:hidden:
 :caption: Other Essentials
 
 whatsnew/index.md
@@ -18,7 +26,19 @@ company level.
 
 The **`database`** directory contains code samples (table, function, stored procedures, etc.) that represents all the data
 that are tracked, updated and used for different purposes. The directory structure follows simple standard by seperating each
-data by schema names. The losely coupled database design ensures enduser to specifically break links between two different
+data by schema names. The *losely coupled database design* ensures enduser to specifically break links between two different
 schema at will by removing the foreign key constraints.
+
+The repository aims to connect data coming from different sources and create an unified interface for controlling for the
+developers. In addition, any internal database are added as a submodule and may only be accesible to an enduser if necessary
+permission is available.
+
+The internal database uses [Postgre SQL](https://www.postgresql.org/) with [MongoDB](https://www.mongodb.com/), however there
+maybe a requirement for setup in a differnt flavor for which an independent database migration script is being prepared.
+
+### Standard Convention
+
+A set of standard convention is coneptualized which is enforced throughout the database. The convention are specially curated
+to keep the database elements (like table/field names, procedures, etc.) standardized and easier to develop.
 
 </div>
