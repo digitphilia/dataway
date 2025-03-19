@@ -1,0 +1,3 @@
+[submodule "submodules/api/forexrates"]
+	path = submodules/api/forexrates
+	url = https://github.com/sharkutilities/forexrates.git
