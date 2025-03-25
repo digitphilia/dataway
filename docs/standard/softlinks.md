@@ -1,4 +1,8 @@
-<h1 align = "center">Database Schema Design</h1>
+<div align = "center">
+
+# Database Schema Design
+
+</div>
 
 <div align = "justify">
 
