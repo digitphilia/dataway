@@ -36,9 +36,4 @@ permission is available.
 The internal database uses [Postgre SQL](https://www.postgresql.org/) with [MongoDB](https://www.mongodb.com/), however there
 maybe a requirement for setup in a differnt flavor for which an independent database migration script is being prepared.
 
-### Standard Convention
-
-A set of standard convention is coneptualized which is enforced throughout the database. The convention are specially curated
-to keep the database elements (like table/field names, procedures, etc.) standardized and easier to develop.
-
 </div>
