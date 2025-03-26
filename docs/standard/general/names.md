@@ -1,48 +1,36 @@
 <div align = "center">
 
-# General SQL Style Guide
+# Naming Convention
 
 </div>
 
-<div>
+<div align = "justify">
 
-## Registered Schema Namespace
+The standard naming conventions are to be followed while creating any object (table, views, columns, functions, etc.) in the
+repository, else a PR maybe rejected due to non-compliance. The general naming rules are as follows:
 
-To facilitate different projects, the database is seperated into multiple schemas to reduce workloads. In addition, database
-like `postgres` allow different storage location optimization based on schema defination.
+  * All the **_names_** (table, views, columns) are to be defined in **_singular_** form, for example the table name must 
+    be `data_source` instead of `data_sources` and the same rule is applied for column, functions, views, etc. names.
+  * Keep the length to a maximum of 30 characters and should always be simple ASCII characters.
+  * Follow **`snake_case`** naming convention.
 
-### Public (`public`) Schema
-
-As the name suggests, the publically available information which were typically collated from open/freeware sources. The
-data sources are either mentioned, or the data is available under the [seed](../../database/seed/) directory. The following
-table structures are available under the public schema:
-
-  1. World Country Tables - List of continents, regions, country, states, cities and any other related information are
-    available under this table schema.
-  2. World Currency Tables - List of circulated/non-circulated/digital/other forms of currency along with various other
-    information is available  under this table schema.
-
-## Constraints & Naming Convention
-
-A set of rules are defined in place to keep consistency for the tables across different schema. The following prefix/suffix
-are defined to easily recognise database elements. The following exhaustive list is available for usage.
-
-### Table Names
+## Table Names
 
 A name of the table must be **singular** (`name` instead of `names`), follow **`snake_case`** and this should be consistent.
-In addition, to seperate different types of tables (`master` vs `transactional`) the following affixes are to be maintained.
+In addition, to seperate different types of tables (`master` vs `transactional`) the following affixes
+[**Hungarian Notation**](https://en.wikipedia.org/wiki/Hungarian_notation) are to be maintained.
 
 <div align = "center">
 
 | Affix Type | Affix Value | Usages & Limitations | Long Description |
 | :---: | :---: | :---: | --- |
-| **PREFIX** | `mw_` | Table Names | Prefix for table names which stores master data. |
-| **PREFIX** | `tx_` | Table Names | Prefix for table names which stores transactional data. |
-| **PREFIX** | `sl_` | Table Names | Prefix for table names which connects tables from different schema. |
+| **PREFIX** | `mw_` | Table Names | Prefix for table names which stores **master** data. |
+| **PREFIX** | `tx_` | Table Names | Prefix for table names which stores **transactional** data. |
+| **PREFIX** | `sl_` | Table Names | Prefix for table names which connects tables (**softlinks**) from different schema. |
 
 </div>
 
-#### Table Views
+### Table Views
 
 Table views are virtual tables that present the data from one or more base tables without storing the data. The name of the
 view should also be **singular**, follow **`snake_case`** and be descriptive.
@@ -51,7 +39,8 @@ view should also be **singular**, follow **`snake_case`** and be descriptive.
 
 | Affix Type | Affix Value | Usages & Limitations | Long Description |
 | :---: | :---: | :---: | --- |
-| **PREFIX** | `vw_` | Table View Names | Prefix for table view, and is typically for internal usage. |
+| **PREFIX** | `uvw_` | Table View Names | General prefix for table view, and is typically for enduser/API usage. |
+| **PREFIX** | `ivw_` | Table View Names | Prefix for table view, and is typically for internal usage. |
 | **PREFIX** | `pvw_` | Table View Names | Parametric table views which are typically to be used for internal usages and control. |
 | **PREFIX** | `rvw_` | Table View Names | Prefix for table views which are for reporting and often have decorated column names. |
 
@@ -74,6 +63,47 @@ follow **singular** and **`snake_case`** naming convention. The following affixe
 The conventions are defined to maintain consistency across the wide schema consisting of multiple tables, and other informations.
 These conventions is not universal and some might be very specific to this organization, so if you are a first time contributor
 do read the content carefully before opening a pull request.
+
+## Column Names
+
+A name of the column must be **singular** (`name` instead of `names`), follow **`snake_case`** and this should be consistent.
+In addition, the following checks should be maintained:
+
+  * Primary key should not be named `id` instead should be descriptive like `member_id`, `file_id`, etc.
+  * The transactional table (`trx_*`) may have an identity/primary key column `_id` which denotes that the key is only
+    for database/API usage and has no particular usages.
+  * The column name must not be same as that of the table name, and vice versa is also applicable.
+
+### Uniform Affixes
+
+The following affixes are associated with a column name and have an universal meaning ensuring the columns can be read and
+understood easily from the SQL code.
+
+<div align = "center">
+
+| Affix Type | Affix Value | Usages & Limitations | Long Description |
+| :---: | :---: | :---: | --- |
+| **SUFFIX** | `_id` | An unique identifier, typically a primary key for the table. |
+| **SUFFIX** | `_status` | Flag value, like `active_status`, of boolean or any other type. |
+| **SUFFIX** | `_date` | Signifies a column that contains date of something and should often be indexed. |
+| **SUFFIX** | `_datetime` | Like `_date` denotes an associated time value and proper indexing should be done. |
+
+</div>
+
+### Constant Column Names
+
+The following column names are constant, typically associated with an transactional table, and the same are as follows:
+
+<div align = "center">
+
+| Column Name | Affix Value | Usages & Limitations | Long Description |
+| :---: | :---: | :---: | --- |
+| **SUFFIX** | `_id` | An unique identifier, typically a primary key for the table. |
+| **SUFFIX** | `_status` | Flag value, like `active_status`, of boolean or any other type. |
+| **SUFFIX** | `_date` | Signifies a column that contains date of something and should often be indexed. |
+| **SUFFIX** | `_datetime` | Like `_date` denotes an associated time value and proper indexing should be done. |
+
+</div>
 
 </div>
 
