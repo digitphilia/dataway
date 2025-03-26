@@ -24,6 +24,7 @@ other objects in sync and consistent across the database.
 :hidden:
 
 names.md
+syntax.md
 ```
 
 </div>
