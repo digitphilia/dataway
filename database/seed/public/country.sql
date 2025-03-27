@@ -52,6 +52,7 @@ INSERT INTO public.mw_subregion (subregion_code, subregion_name, region_code, wi
     ('WAS', 'Western Asia', 'ASA', 'Q27293'),
     ('WEU', 'Western Europe', 'EUR', 'Q27496');
 
+
 INSERT INTO public.mw_country (country_code, country_name, continent_code, region_code, subregion_code, iso2_code, numeric_code, top_level_domain) VALUES
     ('AFG', 'Afghanistan', 'AS', 'ASA', 'SAS', 'AF', '004', '.af'),
     ('ALA', 'Aland Islands', 'EU', 'EUR', 'NEU', 'AX', '248', '.ax'),

@@ -120,6 +120,17 @@ CREATE TABLE IF NOT EXISTS public.mw_country (
 );
 
 
+CREATE TABLE IF NOT EXISTS public.mw_state_type (
+    state_type_code
+        CHAR(3)
+        CONSTRAINT pk_state_type PRIMARY KEY,
+
+    state_type_name
+        VARCHAR(64) NOT NULL
+        CONSTRAINT uq_state_type_name UNIQUE
+);
+
+
 CREATE TABLE IF NOT EXISTS public.mw_state (
     state_code
         CHAR(5)
@@ -136,7 +147,11 @@ CREATE TABLE IF NOT EXISTS public.mw_state (
             ON DELETE SET NULL,
 
     state_type
-        VARCHAR(32),
+        CHAR(3)
+        CONSTRAINT fk_state_state_type
+            REFERENCES public.mw_state_type(state_type_code)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL,
 
     state_latitude
         NUMERIC(9, 6),
