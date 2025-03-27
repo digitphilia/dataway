@@ -9,7 +9,7 @@ maynot be consistent with standard naming conventions.
 Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
-INSERT INTO public.mw_continent (continent_code, continent_name, wikidata_id) VALUES
+INSERT INTO public.mw_continent (continent_code, continent_name, wikidata_id, geoname_id) VALUES
     ('AS', 'ASIA', 'Q48', '6255147'),
     ('AF', 'AFRICA', 'Q15', '6255146'),
     ('EU', 'EUROPE', 'Q46', '6255148'),
