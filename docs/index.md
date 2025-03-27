@@ -11,6 +11,14 @@ standard/index.md
 ```
 
 ```{toctree}
+:maxdepth: 3
+:hidden:
+:caption: Database Design
+
+schema/index.md
+```
+
+```{toctree}
 :maxdepth: 2
 :hidden:
 :caption: Other Essentials
