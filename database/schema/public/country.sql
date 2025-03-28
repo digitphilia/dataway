@@ -132,9 +132,12 @@ CREATE TABLE IF NOT EXISTS public.mw_state_type (
 
 
 CREATE TABLE IF NOT EXISTS public.mw_state (
-    state_code
+    state_uuid
         CHAR(5)
-        CONSTRAINT pk_state_code PRIMARY KEY,
+        CONSTRAINT pk_state_uuid PRIMARY KEY,
+
+    state_code
+        VARCHAR(5),
 
     state_name
         VARCHAR(64) NOT NULL,
@@ -159,7 +162,8 @@ CREATE TABLE IF NOT EXISTS public.mw_state (
     state_longitude
         NUMERIC(9, 6),
 
-    CONSTRAINT uq_state_name UNIQUE (country_code, state_name)
+    CONSTRAINT uq_state_name UNIQUE (country_code, state_name),
+    CONSTRAINT uq_state_code UNIQUE (country_code, state_code)
 );
 
 
