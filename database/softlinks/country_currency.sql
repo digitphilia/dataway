@@ -22,16 +22,16 @@ CREATE TABLE IF NOT EXISTS public.sl_country_currency (
         SERIAL PRIMARY KEY,
 
     country_code
-        CHAR(2) NOT NULL
+        CHAR(3) NOT NULL
         CONSTRAINT fk_sl_cc_country_code
-            REFERENCES public.country(country_code)
+            REFERENCES public.mw_country(country_code)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
     currency_code
         CHAR(3) NOT NULL
         CONSTRAINT fk_sl_cc_currency_code
-            REFERENCES public.currency(currency_code)
+            REFERENCES public.mw_currency(currency_code)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
@@ -42,10 +42,10 @@ CREATE TABLE IF NOT EXISTS public.sl_country_currency (
         VARCHAR(256),
 
     created_on
-        DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     updated_on
-        DATETIME,
+        TIMESTAMP,
 
     CONSTRAINT uq_sl_country_currency
         UNIQUE (country_code, currency_code),
