@@ -162,6 +162,14 @@ CREATE TABLE IF NOT EXISTS public.mw_state (
     state_longitude
         NUMERIC(9, 6),
 
+    wikidata_id
+        VARCHAR(8)
+        CONSTRAINT uq_state_wikidata_id UNIQUE,
+
+    geoname_id
+        VARCHAR(8)
+        CONSTRAINT uq_state_geoname_id UNIQUE,
+
     CONSTRAINT uq_state_name UNIQUE (country_code, state_name),
     CONSTRAINT uq_state_code UNIQUE (country_code, state_code)
 );
@@ -182,10 +190,10 @@ CREATE TABLE IF NOT EXISTS public.mw_city (
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
-    state_code
+    state_uuid
         CHAR(5) NOT NULL
-        CONSTRAINT fk_city_state_code
-            REFERENCES public.mw_state(state_code)
+        CONSTRAINT fk_city_state_uuid
+            REFERENCES public.mw_state(state_uuid)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
@@ -198,5 +206,13 @@ CREATE TABLE IF NOT EXISTS public.mw_city (
     city_longitude
         NUMERIC(9, 6),
 
-    CONSTRAINT uq_city_name UNIQUE (country_code, state_code, city_name)
+    wikidata_id
+        VARCHAR(8)
+        CONSTRAINT uq_city_wikidata_id UNIQUE,
+
+    geoname_id
+        VARCHAR(8)
+        CONSTRAINT uq_city_geoname_id UNIQUE,
+
+    CONSTRAINT uq_city_name UNIQUE (country_code, state_uuid, city_name)
 );
