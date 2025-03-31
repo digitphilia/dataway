@@ -17,6 +17,6 @@ INSERT INTO public.mw_currency_type (currency_type, currency_type_name, currency
 
 INSERT INTO public.mw_currency_subtype (currency_subtype, currency_subtype_name, currency_type, currency_subtype_desc, wikidata_id) VALUES
     ('C', 'Cryptocurrency', 'D', 'A digital currency that is designed to work over the network.', 'Q13479982'),
-    ('F', 'Central Bank Digital Currency (CBDC)', 'A digital fiat currency which is issued by a central bank.', 'Q39086217'),
+    ('F', 'Central Bank Digital Currency (CBDC)', 'D', 'A digital fiat currency which is issued by a central bank.', 'Q39086217'),
     ('S', 'Stablecoins', 'D', 'A type of cryptocurrency where the value is pegged to a referencing asset.', 'Q55582088'),
     ('V', 'Virtual Currency', 'D', 'Digital currency which are unregulated and typically controlled by its developers.', 'Q4112083');
