@@ -28,18 +28,16 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_major_revision (
 
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_minor_revision (
-    minor_revision_date
+    hs_minor_revision_date
         DATE
         CONSTRAINT pk_minor_revision_date PRIMARY KEY,
 
     minor_revision_remarks
-        VARCHAR(256),
-    
-    created_on
-        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        VARCHAR(256) NOT NULL,
 
-    updated_on
-        TIMESTAMP
+    is_active
+          BOOLEAN NOT NULL DEFAULT FALSE
+
 );
 
 
@@ -136,30 +134,30 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
 
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_code (
-    hs_code_uuid
-        CHAR(36)
-        CONSTRAINT pk_hs_code_uuid PRIMARY KEY,
+    hs_code_id
+        VARCHAR(26)
+        CONSTRAINT pk_hs_code_id PRIMARY KEY,
 
     hs_code
-        VARCHAR(12),
+        VARCHAR(12) NOT NULL,
 
-    hs_subheading_uuid
-        CHAR(6) NOT NULL
-        CONSTRAINT fk_hs_subheading_uuid
-            REFERENCES public.mw_hs_subheading_code(hs_subheading_uuid)
+    hs_subheading_id
+        CHAR(11) NOT NULL
+        CONSTRAINT fk_hs_subheading_id
+            REFERENCES public.mw_hs_subheading_code(hs_subheading_id)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
     hs_code_desc
-        VARCHAR(256) NOT NULL,
+        VARCHAR(256),
 
-    minor_revision_date
-        DATE NOT NULL
+    hs_minor_revision_date
+        DATE
         CONSTRAINT fk_minor_revision_date_hs_code
-            REFERENCES public.mw_hs_minor_revision(minor_revision_date)
+            REFERENCES public.mw_hs_minor_revision(hs_minor_revision_date)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
-    CONSTRAINT uq_hs_code UNIQUE(hs_subheading_uuid, minor_revision_date, hs_code),
-    CONSTRAINT uq_hs_desc UNIQUE(hs_subheading_uuid, minor_revision_date, hs_code, hs_code_desc)
+    CONSTRAINT uq_hs_code UNIQUE(hs_subheading_id, hs_minor_revision_date, hs_code),
+    CONSTRAINT uq_hs_desc UNIQUE(hs_subheading_id, hs_minor_revision_date, hs_code, hs_code_desc)
 );
