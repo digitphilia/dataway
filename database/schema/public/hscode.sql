@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
         CONSTRAINT pk_hs_section_id PRIMARY KEY,
 
     hs_section_code
-        CHAR(2),
+        CHAR(2) NOT NULL,
 
     hs_section_desc
         VARCHAR(256) NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_chapter_code (
         CONSTRAINT pk_hs_chapter_id PRIMARY KEY,
 
     hs_chapter_code
-        CHAR(2),
+        CHAR(2) NOT NULL,
 
     hs_section_id
         CHAR(7) NOT NULL
