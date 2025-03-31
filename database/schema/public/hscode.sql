@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_minor_revision (
 
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
-    hs_section_uuid
-        CHAR(36)
-        CONSTRAINT pk_hs_section_uuid PRIMARY KEY,
+    hs_section_id
+        CHAR(7)
+        CONSTRAINT pk_hs_section_id PRIMARY KEY,
 
     hs_section_code
         CHAR(2),
@@ -54,15 +54,15 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
     hs_section_desc
         VARCHAR(256) NOT NULL,
 
-    revision_date
+    major_revision_date
         DATE NOT NULL
         CONSTRAINT fk_major_revision_date_section
-            REFERENCES public.mw_hs_major_revision(revision_date)
+            REFERENCES public.mw_hs_major_revision(hs_major_revision_date)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
-    CONSTRAINT uq_hs_section_code UNIQUE(revision_date, hs_section_code),
-    CONSTRAINT uq_hs_section_desc UNIQUE(revision_date, hs_section_code, hs_section_desc)
+    CONSTRAINT uq_hs_section_code UNIQUE(major_revision_date, hs_section_code),
+    CONSTRAINT uq_hs_section_desc UNIQUE(major_revision_date, hs_section_code, hs_section_desc)
 );
 
 

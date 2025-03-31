@@ -16,28 +16,28 @@ INSERT INTO public.mw_hs_major_revision (hs_major_revision_date, hs_major_revisi
   ('2022-01-01', 'Updated for 2022', TRUE);
 
 
-INSERT INTO public.mw_hs_section_code (hs_section_code, hs_section_desc) VALUES
-  ('01', 'Live Animals; Animal Products'),
-  ('02', 'Vegetable Products'),
-  ('03', 'Animal or Vegetable Fats & Oils & Their Cleavage Products; Prepared Edible Fats; Animal or Vegatble Waxes'),
-  ('04', 'Prepared Foodstuffs; Beverages, Spirits & Vinegar; Tobacco & Manufactured Tobacco Substitutes'),
-  ('05', 'Mineral Products'),
-  ('06', 'Products of The Chemicals or Allied Industries'),
-  ('07', 'Plastics & Articles thereof; Rubber & Articles thereof'),
-  ('08', 'Raw Hides & Skins, Leather, Furskins & Articles thereof; Saddlery & Harness; Travel Goods, H&bags & Similar Containers; Articles of Animal Gut (Other Than Silk-Worm Gut)'),
-  ('09', 'Wood & Articles of Wood; Wood Charcoal; Cork & Articles or Cork; Manufactures of Straw, of Esparto or of Other Plaiting Materials; Basketware & Wickerwork'),
-  ('10', 'Pulp of Wood or of Other Fibrous Cellulosic Material; Recovered (Waste & Scrap) Paper or Paperboard; Paper & Paperboard & Articles thereof'),
-  ('11', 'Textile & Textile Articles'),
-  ('12', 'Footwear, Headgear, Umbrellas, Sun Umbrellas, Walking-Sticks, Seat-Sticks, Whips, Riding-Crops & Parts thereof; Prepared Feathers & Articles Made Therewith; Artificial Flowers; Articles of Human Hair'),
-  ('13', 'Articles of Stone, Plaster, Cement, Asbestos, Mica or Similar Materials; Ceramic Products; Glass & Glassware'),
-  ('14', 'Natural or Cultured Pearls, Precious or Semi-Precious Stones, Precious Metals, Metals Clad With Precious Metal, & Articles thereof; Imitation Jewellery; Coin'),
-  ('15', 'Base Metals & Articles of Base Metal'),
-  ('16', 'Machinery & Mechanical Appliances; Electrical Equipment; Parts thereof; Sound Recorders & Reproducers, Television Image & Sound Recorders & Reproducers, Television Image & Sound Recorders & Reproducers, & Parts'),
-  ('17', 'Vehicles, Aircraft, Vessels & Associated Transport Equipment'),
-  ('18', 'Optical, Photographic, Cinematographic, Measuring, Checking, Precision, Medical or Surgical Instruments & Apparatus; Clocks & Watches; Musical Instruments; Part & Accessories thereof'),
-  ('19', 'Arms & Ammunition; Parts & Accessories thereof'),
-  ('20', 'Miscellaneous Manufactured Articles'),
-  ('21', 'Works of Art, Collectors Pieces & Antiques');
+INSERT INTO public.mw_hs_section_code (hs_section_id, hs_section_code, hs_section_desc, major_revision_date) VALUES
+  ('2022-01', '01', 'Live Animals; Animal Products', '2022-01-01'),
+  ('2022-02', '02', 'Vegetable Products', '2022-01-01'),
+  ('2022-03', '03', 'Animal or Vegetable Fats & Oils & Their Cleavage Products; Prepared Edible Fats; Animal or Vegatble Waxes', '2022-01-01'),
+  ('2022-04', '04', 'Prepared Foodstuffs; Beverages, Spirits & Vinegar; Tobacco & Manufactured Tobacco Substitutes', '2022-01-01'),
+  ('2022-05', '05', 'Mineral Products', '2022-01-01'),
+  ('2022-06', '06', 'Products of The Chemicals or Allied Industries', '2022-01-01'),
+  ('2022-07', '07', 'Plastics & Articles thereof; Rubber & Articles thereof', '2022-01-01'),
+  ('2022-08', '08', 'Raw Hides & Skins, Leather, Furskins & Articles thereof; Saddlery & Harness; Travel Goods, H&bags & Similar Containers; Articles of Animal Gut (Other Than Silk-Worm Gut)', '2022-01-01'),
+  ('2022-09', '09', 'Wood & Articles of Wood; Wood Charcoal; Cork & Articles or Cork; Manufactures of Straw, of Esparto or of Other Plaiting Materials; Basketware & Wickerwork', '2022-01-01'),
+  ('2022-10', '10', 'Pulp of Wood or of Other Fibrous Cellulosic Material; Recovered (Waste & Scrap) Paper or Paperboard; Paper & Paperboard & Articles thereof', '2022-01-01'),
+  ('2022-11', '11', 'Textile & Textile Articles', '2022-01-01'),
+  ('2022-12', '12', 'Footwear, Headgear, Umbrellas, Sun Umbrellas, Walking-Sticks, Seat-Sticks, Whips, Riding-Crops & Parts thereof; Prepared Feathers & Articles Made Therewith; Artificial Flowers; Articles of Human Hair', '2022-01-01'),
+  ('2022-13', '13', 'Articles of Stone, Plaster, Cement, Asbestos, Mica or Similar Materials; Ceramic Products; Glass & Glassware', '2022-01-01'),
+  ('2022-14', '14', 'Natural or Cultured Pearls, Precious or Semi-Precious Stones, Precious Metals, Metals Clad With Precious Metal, & Articles thereof; Imitation Jewellery; Coin', '2022-01-01'),
+  ('2022-15', '15', 'Base Metals & Articles of Base Metal', '2022-01-01'),
+  ('2022-16', '16', 'Machinery & Mechanical Appliances; Electrical Equipment; Parts thereof; Sound Recorders & Reproducers, Television Image & Sound Recorders & Reproducers, Television Image & Sound Recorders & Reproducers, & Parts', '2022-01-01'),
+  ('2022-17', '17', 'Vehicles, Aircraft, Vessels & Associated Transport Equipment', '2022-01-01'),
+  ('2022-18', '18', 'Optical, Photographic, Cinematographic, Measuring, Checking, Precision, Medical or Surgical Instruments & Apparatus; Clocks & Watches; Musical Instruments; Part & Accessories thereof', '2022-01-01'),
+  ('2022-19', '19', 'Arms & Ammunition; Parts & Accessories thereof', '2022-01-01'),
+  ('2022-20', '20', 'Miscellaneous Manufactured Articles', '2022-01-01'),
+  ('2022-21', '21', 'Works of Art, Collectors Pieces & Antiques', '2022-01-01');
 
 
 INSERT INTO public.mw_hs_chapter_code (hs_chapter_code, hs_section_code, hs_chapter_desc) VALUES
