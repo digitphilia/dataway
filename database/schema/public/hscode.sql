@@ -113,25 +113,25 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_heading_code (
 
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
-    hs_subheading_uuid
-        CHAR(36)
-        CONSTRAINT pk_hs_subheading_uuid PRIMARY KEY,
+    hs_subheading_id
+        CHAR(11)
+        CONSTRAINT pk_hs_subheading_id PRIMARY KEY,
 
     hs_subheading_code
-        CHAR(6),
+        CHAR(6) NOT NULL,
 
-    hs_heading_uuid
+    hs_heading_id
         CHAR(36) NOT NULL
-        CONSTRAINT fk_hs_heading_uuid
-            REFERENCES public.mw_hs_heading_code(hs_heading_uuid)
+        CONSTRAINT fk_hs_heading_id
+            REFERENCES public.mw_hs_heading_code(hs_heading_id)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
     hs_subheading_desc
-        VARCHAR(256) NOT NULL,
+        VARCHAR(256),
 
-    CONSTRAINT uq_hs_subheading_code UNIQUE(hs_heading_uuid, hs_subheading_code),
-    CONSTRAINT uq_hs_subheading_desc UNIQUE(hs_heading_uuid, hs_subheading_code, hs_subheading_desc)
+    CONSTRAINT uq_hs_subheading_code UNIQUE(hs_subheading_id, hs_subheading_code),
+    CONSTRAINT uq_hs_subheading_desc UNIQUE(hs_subheading_id, hs_subheading_code, hs_subheading_desc)
 );
 
 
