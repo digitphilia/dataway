@@ -237,9 +237,6 @@ INSERT INTO public.mw_hs_subheading_code (hs_subheading_id, hs_subheading_code, 
   ('2022-481141', '481141', '2022-4811');
 
 
--- ! WRONG DESCRIPTION ENTRY WARNING
--- all the description are wrong, too much work - hire someone else
-
 INSERT INTO public.mw_hs_code (hs_code_id, hs_code, hs_subheading_id) VALUES
   ('IN-2022-V000-29023000', '29023000', '2022-290230'),
   ('IN-2022-V000-29025000', '29025000', '2022-290250'),
