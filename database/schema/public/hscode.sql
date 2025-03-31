@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_code (
     hs_code_id
-        VARCHAR(26)
+        VARCHAR(21)
         CONSTRAINT pk_hs_code_id PRIMARY KEY,
 
     hs_code
