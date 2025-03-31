@@ -15,21 +15,15 @@ Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_major_revision (
-    revision_date
+    hs_major_revision_date
         DATE
         CONSTRAINT pk_revision_date PRIMARY KEY,
-
-    next_revision_date
-        DATE,
-    
-    created_on
-        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    updated_on
-        TIMESTAMP,
+        
+    hs_major_revision_comment
+        VARCHAR(256) NOT NULL,
 
     is_active
-          BOOLEAN NOT NULL DEFAULT TRUE
+          BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 

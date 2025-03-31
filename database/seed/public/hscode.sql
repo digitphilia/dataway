@@ -8,6 +8,14 @@ headings and sub-headings details are provided for reference.
 Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
+INSERT INTO public.mw_hs_major_revision (hs_major_revision_date, hs_major_revision_comment, is_active) VALUES
+  ('2002-01-01', 'Initial Release', FALSE),
+  ('2007-01-01', 'Updated for 2007', FALSE),
+  ('2012-01-01', 'Updated for 2012', FALSE),
+  ('2017-01-01', 'Updated for 2017', FALSE),
+  ('2022-01-01', 'Updated for 2022', TRUE);
+
+
 INSERT INTO public.mw_hs_section_code (hs_section_code, hs_section_desc) VALUES
   ('01', 'Live Animals; Animal Products'),
   ('02', 'Vegetable Products'),
