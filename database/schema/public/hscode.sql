@@ -67,25 +67,25 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
 
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_chapter_code (
-    hs_chapter_uuid
-        CHAR(36)
-        CONSTRAINT pk_hs_chapter_uuid PRIMARY KEY,
+    hs_chapter_id
+        CHAR(7)
+        CONSTRAINT pk_hs_chapter_id PRIMARY KEY,
 
     hs_chapter_code
         CHAR(2),
 
-    hs_section_uuid
-        CHAR(36) NOT NULL
-        CONSTRAINT fk_hs_section_uuid
-            REFERENCES public.mw_hs_section_code(hs_section_uuid)
+    hs_section_id
+        CHAR(7) NOT NULL
+        CONSTRAINT fk_hs_section_id
+            REFERENCES public.mw_hs_section_code(hs_section_id)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
 
     hs_chapter_desc
         VARCHAR(256) NOT NULL,
 
-    CONSTRAINT uq_hs_chapter_code UNIQUE(hs_section_uuid, hs_chapter_code),
-    CONSTRAINT uq_hs_chapter_desc UNIQUE(hs_section_uuid, hs_chapter_code, hs_chapter_desc)
+    CONSTRAINT uq_hs_chapter_code UNIQUE(hs_section_id, hs_chapter_code),
+    CONSTRAINT uq_hs_chapter_desc UNIQUE(hs_section_id, hs_chapter_code, hs_chapter_desc)
 );
 
 
