@@ -24,6 +24,7 @@ schema/index.md
 :caption: Other Essentials
 
 whatsnew/index.md
+submodules.md
 ```
 
 An one stop solution to manage, update and track the progress of databases at the company level. Individual schema are
