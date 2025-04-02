@@ -1,0 +1,9 @@
+version: 2
+
+# ? workflow to update the submodules on a weekly interval
+# more information - https://stackoverflow.com/a/73229032/6623589
+updates:
+  - package-ecosystem: gitsubmodule
+    schedule:
+      interval: "weekly"
+    directory: /
