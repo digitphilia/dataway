@@ -1,3 +1,6 @@
 [submodule "submodules/api/forexrates"]
 	path = submodules/api/forexrates
 	url = https://github.com/sharkutilities/forexrates.git
+[submodule "database/schema/internals/datasource"]
+	path = database/schema/internals/datasource
+	url = https://github.com/digitphilia/datasource.git

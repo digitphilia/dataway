@@ -8,3 +8,4 @@ Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
 CREATE SCHEMA static;
+CREATE SCHEMA internals;
