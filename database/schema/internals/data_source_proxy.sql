@@ -11,9 +11,10 @@ table with an underlying hard link constraint.
 Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
-CREATE TABLE IF NOT EXISTS internals.data_source_proxy (
+CREATE TABLE IF NOT EXISTS internals.mw_data_source_proxy (
     data_source_proxy_id
-        SMALLSERIAL pk_data_source_proxy_id PRIMARY KEY,
+        SMALLSERIAL
+        CONSTRAINT pk_data_source_proxy_id PRIMARY KEY,
 
     data_source_proxy_desc
         VARCHAR(256) NOT NULL
