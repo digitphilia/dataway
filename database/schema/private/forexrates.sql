@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS private.tx_forex_rate (
     data_source_proxy_id
         SMALLINT NOT NULL
         CONSTRAINT fk_forex_data_source_proxy_id
-            REFERENCES internals.data_source_proxy(data_source_proxy_id)
+            REFERENCES internals.mw_data_source_proxy(data_source_proxy_id)
             ON UPDATE CASCADE
             ON DELETE SET NULL
 );
