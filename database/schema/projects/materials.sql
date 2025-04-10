@@ -16,7 +16,9 @@ digit unique value of the parts:
     <type>-<subtype>-<material>
 
 If a material type does not have any corresponding subtype then one
-can use the `XXX` flag as subtype in derived material name.
+can use the `OTH` flag as subtype in derived material name. In addition,
+the check constraint is added so that we do not have to manually
+insert "OTH" as a subtype for all the material types.
 
 Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
@@ -52,7 +54,11 @@ CREATE TABLE IF NOT EXISTS projects.mw_material_subtype (
         CONSTRAINT uq_material_subtype_name UNIQUE,
 
     material_subtype_desc
-        VARCHAR(128)
+        VARCHAR(128),
+
+    CONSTRAINT ck_subtype_id_not_oth CHECK (
+        material_subtype_id <> 'OTH'
+    )
 );
 
 
