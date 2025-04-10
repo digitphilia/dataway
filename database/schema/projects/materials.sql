@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS projects.mw_material_type (
 
     material_type_desc
         VARCHAR(128)
-        CONSTRAINT uq_material_type_desc UNIQUE
 );
 
 
@@ -54,7 +53,6 @@ CREATE TABLE IF NOT EXISTS projects.mw_material_subtype (
 
     material_subtype_desc
         VARCHAR(128)
-        CONSTRAINT uq_material_subtype_desc UNIQUE
 );
 
 
