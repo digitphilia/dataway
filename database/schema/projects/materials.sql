@@ -83,5 +83,4 @@ CREATE TABLE IF NOT EXISTS projects.mw_matetial_code (
 
     material_desc
         VARCHAR(128)
-        CONSTRAINT uq_material_desc UNIQUE
 );
