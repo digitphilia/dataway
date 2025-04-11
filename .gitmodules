@@ -4,3 +4,6 @@
 [submodule "database/schema/internals/datasource"]
 	path = database/schema/internals/datasource
 	url = https://github.com/digitphilia/datasource.git
+[submodule "database/schema/internals/dealermaster"]
+	path = database/schema/internals/dealermaster
+	url = https://github.com/digitphilia/dealermaster.git
