@@ -17,7 +17,7 @@ Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 CREATE TABLE IF NOT EXISTS public.mw_hs_major_revision (
     hs_major_revision_date
         DATE
-        CONSTRAINT pk_revision_date PRIMARY KEY,
+        CONSTRAINT pk_hs_major_revision_date PRIMARY KEY,
         
     hs_major_revision_comment
         VARCHAR(256) NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_major_revision (
 CREATE TABLE IF NOT EXISTS public.mw_hs_minor_revision (
     hs_minor_revision_date
         DATE
-        CONSTRAINT pk_minor_revision_date PRIMARY KEY,
+        CONSTRAINT pk_hs_minor_revision_date PRIMARY KEY,
 
     minor_revision_remarks
         VARCHAR(256) NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
 
     major_revision_date
         DATE NOT NULL
-        CONSTRAINT fk_major_revision_date_section
+        CONSTRAINT fk_section_major_revision_date
             REFERENCES public.mw_hs_major_revision(hs_major_revision_date)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_chapter_code (
 
     hs_section_id
         CHAR(7) NOT NULL
-        CONSTRAINT fk_hs_section_id
+        CONSTRAINT fk_hs_chapter_section_id
             REFERENCES public.mw_hs_section_code(hs_section_id)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_heading_code (
 
     hs_chapter_id
         CHAR(7) NOT NULL
-        CONSTRAINT fk_hs_chapter_id
+        CONSTRAINT fk_hs_heading_chapter_id
             REFERENCES public.mw_hs_chapter_code(hs_chapter_id)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
 
     hs_heading_id
         CHAR(36) NOT NULL
-        CONSTRAINT fk_hs_heading_id
+        CONSTRAINT fk_hs_subheading_heading_id
             REFERENCES public.mw_hs_heading_code(hs_heading_id)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_code (
 
     hs_subheading_id
         CHAR(11) NOT NULL
-        CONSTRAINT fk_hs_subheading_id
+        CONSTRAINT fk_hs_code_subheading_id
             REFERENCES public.mw_hs_subheading_code(hs_subheading_id)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_code (
 
     hs_minor_revision_date
         DATE
-        CONSTRAINT fk_minor_revision_date_hs_code
+        CONSTRAINT fk_hs_code_minor_revision_date
             REFERENCES public.mw_hs_minor_revision(hs_minor_revision_date)
             ON UPDATE CASCADE
             ON DELETE SET NULL,
