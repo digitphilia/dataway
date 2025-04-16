@@ -37,6 +37,14 @@ CREATE TABLE IF NOT EXISTS public.sl_country_hscode (
     updated_on
         TIMESTAMP,
 
+    inactive_reason
+        VARCHAR(256),
+
     CONSTRAINT uq_sl_country_hscode
-        UNIQUE (country_code, hs_code_id)
+        UNIQUE (country_code, hs_code_id),
+
+    CONSTRAINT ck_sl_ch_reason CHECK (
+        (is_active IS TRUE AND inactive_reason IS NULL)
+        OR (is_active IS FALSE AND inactive_reason IS NOT NULL)
+    )
 );

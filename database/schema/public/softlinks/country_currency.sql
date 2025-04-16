@@ -38,19 +38,19 @@ CREATE TABLE IF NOT EXISTS public.sl_country_currency (
     is_active
         BOOLEAN NOT NULL DEFAULT TRUE,
 
-    inactive_reason
-        VARCHAR(256),
-
     created_on
         TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     updated_on
         TIMESTAMP,
 
+    inactive_reason
+        VARCHAR(256),
+
     CONSTRAINT uq_sl_country_currency
         UNIQUE (country_code, currency_code),
 
-    CONSTRAINT ck_ammendment_reason CHECK (
+    CONSTRAINT ck_sl_cc_reason CHECK (
         (is_active IS TRUE AND inactive_reason IS NULL)
         OR (is_active IS FALSE AND inactive_reason IS NOT NULL)
     )
