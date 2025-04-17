@@ -9,5 +9,6 @@ Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 
 CREATE SCHEMA static;
 CREATE SCHEMA private;
+CREATE SCHEMA secrets;
 CREATE SCHEMA projects;
 CREATE SCHEMA internals;
