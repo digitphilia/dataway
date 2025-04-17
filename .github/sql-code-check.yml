@@ -1,0 +1,65 @@
+name: Check SQL Statements
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 * * *'  # This will run daily at midnight
+
+jobs:
+  check-sql:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:13.3
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Cache PostgreSQL client
+      uses: actions/cache@v2
+      with:
+        path: /usr/lib/postgresql
+        key: ${{ runner.os }}-postgresql-client
+
+    - name: Setup PostgreSQL
+      uses: Harmon758/postgresql-action@v1.0.0
+      with:
+        postgresql version: '13'
+        postgresql db: 'testdb'
+        postgresql user: 'postgres'
+        postgresql password: 'postgres'
+
+    - name: Wait for PostgreSQL to be Ready
+      run: |
+        until pg_isready -h localhost -p 5432; do
+          echo "Waiting for PostgreSQL to be ready..."
+          sleep 1
+        done
+
+    - name: Lint SQL Scripts
+      run: |
+        pip install sqlfluff
+        sqlfluff lint database/init.sql
+
+    - name: Run & Check SQL Statements
+      run: |
+        psql -h localhost -U postgres -d testdb -f database/init.sql
+ 
