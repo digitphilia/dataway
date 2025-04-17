@@ -60,7 +60,11 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
             ON DELETE SET NULL,
 
     CONSTRAINT uq_hs_section_code UNIQUE(major_revision_date, hs_section_code),
-    CONSTRAINT uq_hs_section_desc UNIQUE(major_revision_date, hs_section_code, hs_section_desc)
+    CONSTRAINT uq_hs_section_desc UNIQUE(major_revision_date, hs_section_code, hs_section_desc),
+
+    CONSTRAINT ck_hs_section_id_patterns CHECK (
+        hs_section_id ~* '\d{4}-\d{2}'
+    )
 );
 
 
@@ -83,7 +87,11 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_chapter_code (
         VARCHAR(256) NOT NULL,
 
     CONSTRAINT uq_hs_chapter_code UNIQUE(hs_section_id, hs_chapter_code),
-    CONSTRAINT uq_hs_chapter_desc UNIQUE(hs_section_id, hs_chapter_code, hs_chapter_desc)
+    CONSTRAINT uq_hs_chapter_desc UNIQUE(hs_section_id, hs_chapter_code, hs_chapter_desc),
+
+    CONSTRAINT ck_hs_chapter_id_patterns CHECK (
+        hs_chapter_id ~* '\d{4}-\d{2}'
+    )
 );
 
 
@@ -106,7 +114,11 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_heading_code (
         VARCHAR(256) NOT NULL,
 
     CONSTRAINT uq_hs_heading_code UNIQUE(hs_heading_id, hs_heading_code),
-    CONSTRAINT uq_hs_heading_desc UNIQUE(hs_heading_id, hs_heading_code, hs_heading_desc)
+    CONSTRAINT uq_hs_heading_desc UNIQUE(hs_heading_id, hs_heading_code, hs_heading_desc),
+
+    CONSTRAINT ck_hs_heading_id_patterns CHECK (
+        hs_heading_id ~* '\d{4}-\d{4}'
+    )
 );
 
 
@@ -129,7 +141,11 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
         VARCHAR(256),
 
     CONSTRAINT uq_hs_subheading_code UNIQUE(hs_subheading_id, hs_subheading_code),
-    CONSTRAINT uq_hs_subheading_desc UNIQUE(hs_subheading_id, hs_subheading_code, hs_subheading_desc)
+    CONSTRAINT uq_hs_subheading_desc UNIQUE(hs_subheading_id, hs_subheading_code, hs_subheading_desc),
+
+    CONSTRAINT ck_hs_subheading_id_patterns CHECK (
+        hs_subheading_id ~* '\d{4}-\d{6}'
+    )
 );
 
 
@@ -159,5 +175,9 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_code (
             ON DELETE SET NULL,
 
     CONSTRAINT uq_hs_code UNIQUE(hs_subheading_id, hs_minor_revision_date, hs_code),
-    CONSTRAINT uq_hs_desc UNIQUE(hs_subheading_id, hs_minor_revision_date, hs_code, hs_code_desc)
+    CONSTRAINT uq_hs_desc UNIQUE(hs_subheading_id, hs_minor_revision_date, hs_code, hs_code_desc),
+
+    CONSTRAINT ck_hs_code_id_patterns CHECK (
+        hs_code_id ~* '\w{2}-\d{4}-V\d{3}-\d{8,12}'
+    )
 );
