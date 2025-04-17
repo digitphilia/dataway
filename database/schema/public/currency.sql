@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS public.mw_currency (
         CONSTRAINT uq_currency_name UNIQUE,
 
     currency_symbol
-        VARCHAR(16) NOT NULL
+        VARCHAR(16)
         CONSTRAINT uq_currency_symbol UNIQUE,
 
     currency_type
