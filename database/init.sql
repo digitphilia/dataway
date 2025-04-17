@@ -7,6 +7,7 @@ configures the RDBMS to be ready for use - like creating schema.
 Copywright © [2025] Debmalya Pramanik, DigitPhilia INC.
 ********************************************************************/
 
+CREATE SCHEMA dev;
 CREATE SCHEMA static;
 CREATE SCHEMA private;
 CREATE SCHEMA secrets;
