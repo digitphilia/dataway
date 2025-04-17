@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS projects.mw_material_subtype (
 );
 
 
-CREATE TABLE IF NOT EXISTS projects.mw_matetial_code (
+CREATE TABLE IF NOT EXISTS projects.mw_material_code (
     material_code
         CHAR(12)
         CONSTRAINT pk_material_code_id PRIMARY KEY,

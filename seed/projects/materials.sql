@@ -15,7 +15,7 @@ INSERT INTO projects.mw_material_subtype (material_subtype_id, material_type_id,
     ('POL', 'RM', 'Polymer Materials', 'Raw polymer materials used for manufacturing.');
 
 
-INSERT INTO projects.mw_matetial_code (material_code, material_type_id, material_subtype_id, material_name) VALUES
+INSERT INTO projects.mw_material_code (material_code, material_type_id, material_subtype_id, material_name) VALUES
     ('RM-ORG-BACRY', 'RM', 'ORG', 'Butyl Acrylate'),
     ('RM-ORG-CARBZ', 'RM', 'ORG', 'Carbazole'),
     ('RM-ORG-CLORA', 'RM', 'ORG', 'Chloranil'),
