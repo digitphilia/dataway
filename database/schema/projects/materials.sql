@@ -86,5 +86,10 @@ CREATE TABLE IF NOT EXISTS projects.mw_matetial_code (
         CONSTRAINT uq_material_name UNIQUE,
 
     material_desc
-        VARCHAR(128)
+        VARCHAR(128),
+
+    -- ! Ensure the correct material code pattern, by regex constraint
+    CONSTRAINT ck_material_code_pattern CHECK (
+        material_code ~* '\w{2}-\w{3}-\w{5}'
+    )
 );
