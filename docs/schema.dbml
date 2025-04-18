@@ -1,0 +1,14 @@
+/********************************************************************
+DBML - Database Markup Language for DATAWAY Schema Documentation
+
+Explaining and visualizing the schema using the DBML Language by
+[Holistics Software INC.](https://www.holistics.io/).
+
+NOTE: The document is still under development and will be made
+available to the endusers/clients as per requirements.
+********************************************************************/
+
+project dataway {
+  database_type: 'PostgreSQL'
+  document_name: 'Database Documentation'
+}
