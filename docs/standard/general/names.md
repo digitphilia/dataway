@@ -27,6 +27,7 @@ In addition, to seperate different types of tables (`master` vs `transactional`)
 | **PREFIX** | `mw_` | Table Names | Prefix for table names which stores **master** data. |
 | **PREFIX** | `trx_` | Table Names | Prefix for table names which stores **transactional** data. |
 | **PREFIX** | `sl_` | Table Names | Prefix for table names which connects tables (**softlinks**) from different schema. |
+| **PREFIX** | `sbl_` | Table Names | Prefix for table names which connects tables (**soft-broken links**) from different schema. |
 
 </div>
 
