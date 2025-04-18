@@ -25,7 +25,7 @@ In addition, to seperate different types of tables (`master` vs `transactional`)
 | Affix Type | Affix Value | Usages & Limitations | Long Description |
 | :---: | :---: | :---: | --- |
 | **PREFIX** | `mw_` | Table Names | Prefix for table names which stores **master** data. |
-| **PREFIX** | `tx_` | Table Names | Prefix for table names which stores **transactional** data. |
+| **PREFIX** | `trx_` | Table Names | Prefix for table names which stores **transactional** data. |
 | **PREFIX** | `sl_` | Table Names | Prefix for table names which connects tables (**softlinks**) from different schema. |
 
 </div>
