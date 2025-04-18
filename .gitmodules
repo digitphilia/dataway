@@ -7,3 +7,6 @@
 [submodule "database/schema/projects/tradedb"]
 	path = database/schema/projects/tradedb
 	url = https://github.com/digitphilia/tradedb.git
+[submodule "database/schema/internals/clients"]
+	path = database/schema/internals/clients
+	url = https://github.com/digitphilia/clients.git
