@@ -22,6 +22,9 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_major_revision (
     hs_major_revision_comment
         VARCHAR(256) NOT NULL,
 
+    -- ? the is active flag is to showcase which codes are active
+    -- ! globally at the current date-time and not to be confused with
+    -- ! the is_active flag for a particular client-material-hscode
     is_active
           BOOLEAN NOT NULL DEFAULT FALSE
 );
@@ -62,6 +65,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_section_code (
     CONSTRAINT uq_hs_section_code UNIQUE(major_revision_date, hs_section_code),
     CONSTRAINT uq_hs_section_desc UNIQUE(major_revision_date, hs_section_code, hs_section_desc),
 
+    -- ! PATTERN: <YYYY>-<XX>, where <XX> is the actual section number, zero padded
     CONSTRAINT ck_hs_section_id_patterns CHECK (
         hs_section_id ~* '\d{4}-\d{2}'
     )
@@ -89,6 +93,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_chapter_code (
     CONSTRAINT uq_hs_chapter_code UNIQUE(hs_section_id, hs_chapter_code),
     CONSTRAINT uq_hs_chapter_desc UNIQUE(hs_section_id, hs_chapter_code, hs_chapter_desc),
 
+    -- ! PATTERN: <YYYY>-<XX>, where <XX> is the actual chapter number, zero padded
     CONSTRAINT ck_hs_chapter_id_patterns CHECK (
         hs_chapter_id ~* '\d{4}-\d{2}'
     )
@@ -116,6 +121,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_heading_code (
     CONSTRAINT uq_hs_heading_code UNIQUE(hs_heading_id, hs_heading_code),
     CONSTRAINT uq_hs_heading_desc UNIQUE(hs_heading_id, hs_heading_code, hs_heading_desc),
 
+    -- ! PATTERN: <YYYY>-<X:4>, where <X:4> is the actual heading code, zero padded
     CONSTRAINT ck_hs_heading_id_patterns CHECK (
         hs_heading_id ~* '\d{4}-\d{4}'
     )
@@ -143,6 +149,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
     CONSTRAINT uq_hs_subheading_code UNIQUE(hs_subheading_id, hs_subheading_code),
     CONSTRAINT uq_hs_subheading_desc UNIQUE(hs_subheading_id, hs_subheading_code, hs_subheading_desc),
 
+    -- ! PATTERN: <YYYY>-<X:6>, where <X:6> is the actual subheading code, zero padded
     CONSTRAINT ck_hs_subheading_id_patterns CHECK (
         hs_subheading_id ~* '\d{4}-\d{6}'
     )
@@ -151,7 +158,7 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_subheading_code (
 
 CREATE TABLE IF NOT EXISTS public.mw_hs_code (
     hs_code_id
-        VARCHAR(21)
+        VARCHAR(24)
         CONSTRAINT pk_hs_code_id PRIMARY KEY,
 
     hs_code
@@ -177,6 +184,11 @@ CREATE TABLE IF NOT EXISTS public.mw_hs_code (
     CONSTRAINT uq_hs_code UNIQUE(hs_subheading_id, hs_minor_revision_date, hs_code),
     CONSTRAINT uq_hs_desc UNIQUE(hs_subheading_id, hs_minor_revision_date, hs_code, hs_code_desc),
 
+    -- ! PATTERN: <ISO-2>-<YYYY>-<V###>-<X:{8,12}>, where:
+    -- ? <ISO-2> is the ISO-2 country code, since hs code (8-12) digit is country specific
+    -- ? <YYYY> is the year from the major revision date, and is inherited
+    -- ? <V###> is the version number, there might be minor revision on hs code, thus revisions
+    -- ? <X:{8,12}> is the hs code, that follows the national tarrif lines
     CONSTRAINT ck_hs_code_id_patterns CHECK (
         hs_code_id ~* '\w{2}-\d{4}-V\d{3}-\d{8,12}'
     )
