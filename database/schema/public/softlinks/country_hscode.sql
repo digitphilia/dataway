@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS public.sl_country_hscode (
             ON DELETE SET NULL,
 
     hs_code_id
-        VARCHAR(21) NOT NULL
+        VARCHAR(24) NOT NULL
         CONSTRAINT fk_sl_ch_hs_code_id
             REFERENCES public.mw_hs_code(hs_code_id)
             ON UPDATE CASCADE
